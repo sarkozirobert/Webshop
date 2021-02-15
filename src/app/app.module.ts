@@ -33,8 +33,7 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
-    NgbModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [],
