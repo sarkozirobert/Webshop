@@ -6,12 +6,25 @@ import { AppComponent } from './app.component';
 import { MainSiteComponent } from './components/main-site/main-site.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardComponent } from './components/card/card.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import {RouterModule} from '@angular/router';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { RegistrationModalComponent } from './components/registration-modal/registration-modal.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainSiteComponent,
-    CardComponent
+    CardComponent,
+    TopBarComponent,
+    ProductListComponent,
+    CartComponent,
+    ProductDetailsComponent,
+    RegistrationModalComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
