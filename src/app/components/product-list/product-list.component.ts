@@ -9,6 +9,7 @@ import { products } from '../../products';
 })
 export class ProductListComponent implements OnInit {
   products = products;
+  filter!: string;
 
   constructor() { }
 
