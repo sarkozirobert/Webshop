@@ -1,0 +1,12 @@
+a {
+  color: white;
+}
+
+.list-group {
+  align-items: flex-end;
+}
+
+img{
+  height: 36px;
+  width: 36px;
+}
