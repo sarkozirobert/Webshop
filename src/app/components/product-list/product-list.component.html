@@ -2,9 +2,11 @@
 <div class="container" id="product-cont">
 <h2>Products</h2>
 
-<div *ngFor="let product of products">
+<!--  <input type="text" class="form-control" id="searchbar" placeholder="search" [(ngModel)]="filter">-->
+
+  <div *ngFor="let product of products"><!--  | productFilter: filter -->
   <h3>
-    <a [title]="product.name + ' details'" [routerLink]="['/product-details', product.id]">
+    <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
       {{ product.name }}
     </a>
     <button type="button" class="btn btn-primary" routerLink="/product-details/{{product.id}}">
