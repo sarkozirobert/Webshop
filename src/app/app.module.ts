@@ -13,7 +13,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { RegistrationModalComponent } from './components/registration-modal/registration-modal.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
+// import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
