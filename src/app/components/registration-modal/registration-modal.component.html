@@ -1,90 +1,129 @@
-
-
-      <div class="modal-header">
-        <img src="../../../assets/write-letter.png" alt="">
-        <h4 class="modal-title">Registration</h4>
-        <button type="button" class="btn btn-hidden" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-          <span aria-hidden="true">X</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <div class="mb-6 row">
-            <label for="inputFirstName" class="col-sm-4 col-form-label">First name</label>
-              <div class="col-sm-8">
-            <input type="text" class="form-control form-control-sm" id="inputFirstName">
-              </div>
-            </div>
+<form (submit)="submit()" [formGroup]="registrationForm">
+  <div class="modal-header">
+    <img src="../../../assets/write-letter.png" alt="">
+    <h4 class="modal-title">Registration</h4>
+    <button type="button" class="btn btn-hidden" data-dismiss="modal" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">X</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="inputFirstName" class="col-sm-4 col-form-label">First name</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" id="inputFirstName" name="firstName"
+                 [ngClass]="{'is-invalid': registrationForm.controls.firstName.invalid}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.firstName.errors?.required">
+            You must give your first name!
           </div>
-          <div class="form-group">
-            <div class="mb-6 row">
-            <label for="inputLastName" class="col-sm-4 col-form-label">Last Name</label>
-              <div class="col-sm-8">
-            <input type="text" class="form-control form-control-sm" id="inputLastName">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="mb-6 row">
-            <label for="exampleInputEmail1" class="col-sm-4 col-form-label">Email address</label>
-              <div class="col-sm-8">
-            <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="mb-6 row">
-            <label for="exampleInputPassword1" class="col-sm-4 col-form-label">Password</label>
-              <div class="col-sm-8">
-            <input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="mb-6 row">
-            <label for="inputAddress" class="col-sm-4 col-form-label">Address</label>
-              <div class="col-sm-8">
-            <input type="text" class="form-control form-control-sm" id="inputAddress">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="mb-6 row">
-            <label for="inputCity" class="col-sm-4 col-form-label">City</label>
-              <div class="col-sm-8">
-            <input type="text" class="form-control form-control-sm" id="inputCity">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="mb-4 row">
-            <label for="inputCountry" class="col-sm-4 col-form-label">Country</label>
-              <div class="col-sm-8">
-            <input type="text" class="form-control form-control-sm" id="inputCountry">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="mb-6 row">
-            <label for="inputZip" class="col-sm-4 col-form-label">Zip</label>
-              <div class="col-sm-8">
-            <input type="number" class="form-control form-control-sm" id="inputZip">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="mb-6 row">
-            <label for="inputPhoneNum" class="col-sm-4 col-form-label">Phone number</label>
-              <div class="col-sm-8">
-            <input type="tel" class="form-control form-control-sm" id="inputPhoneNum">
-              </div>
-            </div>
-          </div>
-        </form>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
-          <button type="button" class="btn btn-primary">Register</button>
         </div>
       </div>
-
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="inputLastName" class="col-sm-4 col-form-label">Last name</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" id="inputLastName" name="lastName"
+                 [ngClass]="{'is-invalid': registrationForm.controls.lastName.invalid}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.lastName.errors?.required">
+            You must give your last name!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="exampleInputEmail1" class="col-sm-4 col-form-label">Email address</label>
+        <div class="col-sm-8">
+          <input type="email" class="form-control form-control-sm" id="exampleInputEmail1"
+                 aria-describedby="emailHelp" name="email"
+                 [ngClass]="{'is-invalid': registrationForm.controls.email.invalid}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.email.errors?.required">
+            You must give an e-mail address!>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="exampleInputPassword1" class="col-sm-4 col-form-label">Password</label>
+        <div class="col-sm-8">
+          <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" name="password"
+                 [ngClass]="{'is-invalid': registrationForm.controls.password.invalid}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.password.errors?.required">
+            You must give a password!>
+          </div>
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.password.errors?.min">
+            Your password must be at least 6 character long!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="inputAddress" class="col-sm-4 col-form-label">Address</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" id="inputAddress" name="address"
+                 [ngClass]="{'is-invalid': registrationForm.controls.address.invalid}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.address.errors?.required">
+            You must give your address!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="inputCity" class="col-sm-4 col-form-label">City</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" id="inputCity" name="city"
+                 [ngClass]="{'is-invalid': registrationForm.controls.city.invalid}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.city.errors?.required">
+            You must give your city!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-4 row">
+        <label for="inputCountry" class="col-sm-4 col-form-label">Country</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" id="inputCountry" name="country"
+                 [ngClass]="{'is-invalid': registrationForm.controls.country.invalid}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.country.errors?.required">
+            You must give your country!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="inputZip" class="col-sm-4 col-form-label">Zip</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" id="inputZip" name="zip"
+                 [ngClass]="{'is-invalid': registrationForm.controls.zip.invalid}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.zip.errors?.required">
+            You must give your zip!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="inputPhoneNum" class="col-sm-4 col-form-label">Phone number</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" id="inputPhoneNum" name="phoneNum"
+                 [ngClass]="{'is-invalid': registrationForm.controls.phoneNum.invalid}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.phoneNum.errors?.required">
+            You must give your phone number!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+      <button type="button" class="btn btn-primary" [disabled]="registrationForm.invalid">Register
+      </button>
+    </div>
+  </div>
+</form>
