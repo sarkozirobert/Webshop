@@ -6,7 +6,7 @@
 
   <div *ngFor="let product of products"><!--  | productFilter: filter -->
   <h3>
-    <a [title]="product.name + ' details'" [routerLink]="['/product-details', product.id]">
+    <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
       {{ product.name }}
     </a>
     <button type="button" class="btn btn-primary" routerLink="/product-details/{{product.id}}">

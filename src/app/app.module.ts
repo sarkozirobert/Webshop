@@ -13,6 +13,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { RegistrationModalComponent } from './components/registration-modal/registration-modal.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import {ReactiveFormsModule} from "@angular/forms";
 import {FormsModule} from '@angular/forms';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
@@ -26,12 +27,13 @@ import {FormsModule} from '@angular/forms';
     CartComponent,
     ProductDetailsComponent,
     RegistrationModalComponent,
-    SignInComponent,
-  //  ProductFilterPipe
+    SignInComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModule,
+    ReactiveFormsModule
     NgbModule,
     FormsModule
   ],
