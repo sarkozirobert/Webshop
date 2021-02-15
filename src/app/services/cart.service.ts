@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
-@Injectable({
+  import { Injectable } from '@angular/core';
+  import { HttpClient } from '@angular/common/http';
+
+  @Injectable({
   providedIn: 'root'
 })
 export class CartService {
@@ -27,3 +28,5 @@ export class CartService {
     return this.items;
   }
 }
+
+
