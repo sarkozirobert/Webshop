@@ -1,11 +1,13 @@
-<div class="container">
+
+  <app-top-bar></app-top-bar>
+  <div class="container">
 <ngb-carousel [animation]="true" [interval]="3000"> <!--*ngIf="images"-->
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper" style="text-align: center">
       <img src="../../../assets/Short_Sleeve_Tee_SCRIPT_Navy_1_1024x1024.jpg" alt="Random first slide">
     </div>
     <div class="carousel-caption">
-      <h3>First slide label</h3>
+      <h3>AKCIÓK!</h3>
       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
     </div>
   </ng-template>
@@ -14,7 +16,7 @@
       <img src="../../../assets/Short_Sleeve_Tee_SCRIPT_Red_1_1024x1024.jpg" alt="Random second slide">
     </div>
     <div class="carousel-caption">
-      <h3>Second slide label</h3>
+      <h3>HIHETETLEN ÁRAK!</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
   </ng-template>
@@ -28,4 +30,5 @@
     </div>
   </ng-template>
 </ngb-carousel>
+    <app-card></app-card>
 </div>

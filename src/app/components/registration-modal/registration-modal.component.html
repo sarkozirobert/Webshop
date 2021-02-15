@@ -1,49 +1,85 @@
-<div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
+
+
       <div class="modal-header">
-        <h5 class="modal-title">Registration</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <img src="../../../assets/write-letter.png" alt="">
+        <h4 class="modal-title">Registration</h4>
+        <button type="button" class="btn btn-hidden" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">X</span>
         </button>
       </div>
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="inputFirstName">First name</label>
-            <input type="text" class="form-control" id="inputFirstName">
+            <div class="mb-6 row">
+            <label for="inputFirstName" class="col-sm-4 col-form-label">First name</label>
+              <div class="col-sm-8">
+            <input type="text" class="form-control form-control-sm" id="inputFirstName">
+              </div>
+            </div>
           </div>
           <div class="form-group">
-            <label for="inputLastName">Last Name</label>
-            <input type="text" class="form-control" id="inputLastName">
+            <div class="mb-6 row">
+            <label for="inputLastName" class="col-sm-4 col-form-label">Last Name</label>
+              <div class="col-sm-8">
+            <input type="text" class="form-control form-control-sm" id="inputLastName">
+              </div>
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div class="mb-6 row">
+            <label for="exampleInputEmail1" class="col-sm-4 col-form-label">Email address</label>
+              <div class="col-sm-8">
+            <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <div class="mb-6 row">
+            <label for="exampleInputPassword1" class="col-sm-4 col-form-label">Password</label>
+              <div class="col-sm-8">
+            <input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+              </div>
+            </div>
           </div>
           <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress">
+            <div class="mb-6 row">
+            <label for="inputAddress" class="col-sm-4 col-form-label">Address</label>
+              <div class="col-sm-8">
+            <input type="text" class="form-control form-control-sm" id="inputAddress">
+              </div>
+            </div>
           </div>
           <div class="form-group">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
+            <div class="mb-6 row">
+            <label for="inputCity" class="col-sm-4 col-form-label">City</label>
+              <div class="col-sm-8">
+            <input type="text" class="form-control form-control-sm" id="inputCity">
+              </div>
+            </div>
           </div>
           <div class="form-group">
-            <label for="inputCountry">Country</label>
-            <input type="text" class="form-control" id="inputCountry">
+            <div class="mb-4 row">
+            <label for="inputCountry" class="col-sm-4 col-form-label">Country</label>
+              <div class="col-sm-8">
+            <input type="text" class="form-control form-control-sm" id="inputCountry">
+              </div>
+            </div>
           </div>
           <div class="form-group">
-            <label for="inputZip">Zip</label>
-            <input type="number" class="form-control" id="inputZip">
+            <div class="mb-6 row">
+            <label for="inputZip" class="col-sm-4 col-form-label">Zip</label>
+              <div class="col-sm-8">
+            <input type="number" class="form-control form-control-sm" id="inputZip">
+              </div>
+            </div>
           </div>
           <div class="form-group">
-            <label for="inputPhoneNum">Phone number</label>
-            <input type="tel" class="form-control" id="inputPhoneNum">
+            <div class="mb-6 row">
+            <label for="inputPhoneNum" class="col-sm-4 col-form-label">Phone number</label>
+              <div class="col-sm-8">
+            <input type="tel" class="form-control form-control-sm" id="inputPhoneNum">
+              </div>
+            </div>
           </div>
         </form>
         <div class="modal-footer">
@@ -51,6 +87,4 @@
           <button type="button" class="btn btn-primary">Register</button>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+
