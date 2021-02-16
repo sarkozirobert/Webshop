@@ -1,5 +1,6 @@
 .card {
-  background-color: gainsboro;
+  background-color: rgba(229, 228, 255, 0.1);
+  border: hidden;
 }
 
 .card-body {
