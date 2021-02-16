@@ -10,8 +10,18 @@ app-top-bar, app-footer {
   justify-content: space-between;
   align-items: center;
 }
+
+@font-face {
+  font-family: "Special Elite";
+  src: url("assets/SpecialElite-Regular.ttf") format("opentype");
+}
+
 body{
 background-image: url("src/assets/35631eec4dd230994b12fab8bd9b4cbe.jpg");
 
   background-size: cover;
+
+  font-family: 'Special Elite', cursive;
+
+
 }
