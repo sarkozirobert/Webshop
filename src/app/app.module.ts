@@ -15,6 +15,7 @@ import { RegistrationModalComponent } from './components/registration-modal/regi
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 @NgModule({
@@ -27,7 +28,8 @@ import {FormsModule} from '@angular/forms';
     CartComponent,
     ProductDetailsComponent,
     RegistrationModalComponent,
-    SignInComponent
+    SignInComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
