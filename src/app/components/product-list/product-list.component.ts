@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// @ts-ignore
-import { products } from '../../products';
+import {Product} from '../../interfaces/product';
+import {Subscription} from 'rxjs';
+import {ProductsService} from '../../services/products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,12 +9,18 @@ import { products } from '../../products';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products = products;
-  filter!: string;
+  products: Product[];
+  // refreshSubsrciption: Subscription;
 
-  constructor() { }
+  constructor(private productService: ProductsService) {
+    this.products = [];
+  }
 
   ngOnInit(): void {
+    this.productService.getProducts().subscribe(
+      s => {
+        console.log(s);
+      });
   }
 
 }
