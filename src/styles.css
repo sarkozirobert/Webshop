@@ -1,6 +1,6 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-  app-top-bar {
+app-top-bar, app-footer {
   width: 100%;
   height: 68px;
   background-color: #1976d2;
