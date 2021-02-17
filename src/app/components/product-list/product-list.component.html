@@ -2,10 +2,10 @@
 <div class="container" id="product-cont">
 <h2>Products</h2>
 
-<!--  <input type="text" class="form-control" id="searchbar" placeholder="search" [(ngModel)]="filter">-->
+<!--input type="text" class="form-control" id="searchbar" placeholder="search" [(ngModel)]="filter"-->
 
-  <div *ngFor="let product of products"><!--  | productFilter: filter -->
-  <h3>
+  <!--div *ngFor="let product of products">< | productFilter: filter -->
+  <!--h3>
     <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
       {{ product.name }}
     </a>
@@ -14,10 +14,24 @@
     </button>
 
   </h3>
-  <p *ngIf="product.description">
+  <p-- *ngIf="product.description">
     Description: {{ product.description }}
   </p>
 
-</div>
+</div-->
+  <div class="row">
+    <div class="col-md-6 col-lg-3">
+      <app-card *ngFor="let s of products"></app-card>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <app-card></app-card>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <app-card></app-card>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <app-card></app-card>
+    </div>
+  </div>
 
 </div>

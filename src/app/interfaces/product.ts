@@ -1,8 +1,8 @@
 import {Sizes} from './sizes';
 
 export interface Product {
-  name: string;
   id: number;
+  name: string;
   details: string;
   price: number;
   color: string;

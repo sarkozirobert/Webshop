@@ -4,36 +4,33 @@
     <ngb-carousel [animation]="true" [interval]="3000"> <!--*ngIf="images"-->
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper" style="text-align: center">
-          <img src="../../../assets/Short_Sleeve_Tee_SCRIPT_Navy_1_1024x1024.jpg" alt="Random first slide">
+          <img src="../../../assets/red-shirt.png" alt="Random first slide">
         </div>
         <div class="carousel-caption">
-          <h3>AKCIÓK!</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>ON SALE!</h3>
         </div>
       </ng-template>
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper" style="text-align: center">
-          <img src="../../../assets/Short_Sleeve_Tee_SCRIPT_Red_1_1024x1024.jpg" alt="Random second slide">
+          <img src="../../../assets/blue-shirt.png" alt="Random second slide">
         </div>
         <div class="carousel-caption">
-          <h3>HIHETETLEN ÁRAK!</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>INCREDIBLE PRIZE!</h3>
         </div>
       </ng-template>
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper" style="text-align: center">
-          <img src="../../../assets/Short_Sleeve_Tee_SCRIPT_Yellow_1_1024x1024.jpg" alt="Random third slide">
+          <img src="../../../assets/yellow-shirt.png" alt="Random third slide">
         </div>
         <div class="carousel-caption">
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <h3>END OF SEASON SALE!</h3>
         </div>
       </ng-template>
     </ngb-carousel>
-    <h2 class=mt-5>Top Products</h2>
+    <h2 class=mt-5>Costumer's favorites</h2>
     <div class="row">
       <div class="col-md-6 col-lg-3">
-        <app-card></app-card>
+        <app-card src="assets/eff1f44d683c8d5453269376ffa5091c.jpg"></app-card>
       </div>
       <div class="col-md-6 col-lg-3">
         <app-card></app-card>
@@ -45,5 +42,5 @@
         <app-card></app-card>
       </div>
     </div>
-
 </div>
+  <app-footer></app-footer>

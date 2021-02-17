@@ -1,16 +1,19 @@
 .card {
-  background-color: gainsboro;
+  background-color: rgba(229, 228, 255, 0.1);
+  border: hidden;
 }
 
 .card-body {
   font-size: medium;
-  color: blue;
+  color: black;
   text-align: center;
-  font-family: KacstNaskh;
 }
 
 img:hover {
   opacity: 0.8;
 }
 
+a {
+  text-decoration: none;
+}
 
