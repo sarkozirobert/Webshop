@@ -10,6 +10,7 @@ body{
 background-image: url("src/assets/35631eec4dd230994b12fab8bd9b4cbe.jpg");
 
   background-size: cover;
+  background-attachment: fixed;
 
   font-family: 'Special Elite', cursive;
 
