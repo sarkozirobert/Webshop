@@ -1,0 +1,13 @@
+#shoppingCart-h2{
+  font-weight: 1000;
+  line-height: 7;
+}
+#totalPrice{
+  font-weight: 750;
+  font-size: x-large;
+  text-align: left;
+  margin-left: 25px;
+}
+#cart-container{
+  margin-bottom: 100px;
+}
