@@ -10,7 +10,7 @@ import {ProductResponse} from '../interfaces/product-response';
   providedIn: 'root'
 })
 export class ProductsService {
-  private readonly SERVER_URL = 'http://192.168.1.131:8080/clothes';
+  private readonly SERVER_URL = 'https://webshopbackend.herokuapp.com/clothes';
   private productSubject: Subject<Product[]>;
 
 
@@ -22,6 +22,6 @@ export class ProductsService {
   }
   getProducts(): Observable<Product[]> {
     return this.http.get<ProductResponse>(this.SERVER_URL, {withCredentials: true})
-      .pipe(map(resp => resp.products));
+      .pipe(map(resp => resp.list));
   }
 }

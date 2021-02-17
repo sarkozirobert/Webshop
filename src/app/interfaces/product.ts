@@ -6,8 +6,8 @@ export interface Product {
   details: string;
   price: number;
   color: string;
- // gender: string;
- // type: string;
- // size: Sizes;
+  gender: string;
+  type: string;
+  size: Sizes;
 
 }

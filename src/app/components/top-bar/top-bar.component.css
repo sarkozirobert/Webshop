@@ -30,7 +30,7 @@ i.material-icons {
   align-items: center;
 }
 
- h1 {
+ h1,label {
    color: white;
   margin: 0;
 }

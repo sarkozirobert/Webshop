@@ -9,4 +9,5 @@ export interface User {
   country: string;
   zip: number;
   phoneNum: number;
+  id?: number;
 }
