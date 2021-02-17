@@ -5,13 +5,15 @@
 
 .card-body {
   font-size: medium;
-  color: blue;
+  color: black;
   text-align: center;
-  font-family: KacstNaskh;
 }
 
 img:hover {
   opacity: 0.8;
 }
 
+a {
+  text-decoration: none;
+}
 

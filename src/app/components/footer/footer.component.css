@@ -1,3 +1,13 @@
+footer {
+  background-color: #1976d2;
+}
 
+.icon-fb, .icon-insta {
+  width: 32px;
+  height: auto;
+}
 
-
+a {
+  text-decoration: none;
+  color: black;
+}
