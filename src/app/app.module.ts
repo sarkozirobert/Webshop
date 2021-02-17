@@ -37,7 +37,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,13 +16,13 @@ export class RegistrationModalComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal) {
     this.user = {
-      firstName: ' ',
-      lastName: ' ',
-      email: ' ',
-      password: ' ',
-      address: ' ',
-      city: ' ',
-      country: ' ',
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      address: '',
+      city: '',
+      country: '',
       zip: 0,
       phoneNum: 0
     };
