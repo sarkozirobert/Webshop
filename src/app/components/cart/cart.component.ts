@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {Product} from "../../interfaces/product";
+import {OrderedItem} from '../../interfaces/ordered-item';
+
 
 @Component({
   selector: 'app-cart',
@@ -9,10 +10,10 @@ import {Product} from "../../interfaces/product";
 })
 export class CartComponent implements OnInit {
 
-  products: Product[];
+  productsInCart: OrderedItem[];
 
   constructor(public activeModal: NgbActiveModal) {
-    this.products = [];
+    this.productsInCart = [];
   }
 
   ngOnInit(): void {

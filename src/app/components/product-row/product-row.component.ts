@@ -2,6 +2,7 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../interfaces/user';
 import {Product} from '../../interfaces/product';
 import {Sizes} from '../../interfaces/sizes';
+import {OrderedItem} from '../../interfaces/ordered-item';
 
 @Component({
   selector: 'app-product-row',
@@ -11,10 +12,10 @@ import {Sizes} from '../../interfaces/sizes';
 export class ProductRowComponent implements OnInit {
 
   @Input()
-  product: Product;
+  orderedProduct: OrderedItem;
 
   constructor() {
-    this.product = {name: '', id: 0, details: '', price: 0, color: '', gender: '', type: '', };
+    this.orderedProduct = {id: 0, name: '', price: 0, size: '', quantity: 0, subTotal: 0};
   }
 
   ngOnInit(): void {

@@ -4,4 +4,5 @@ export interface OrderedItem {
   price: number;
   size: string;
   quantity: number;
+  subTotal: number;
 }

@@ -11,7 +11,7 @@ export class CartService {
   items = [];
 
   constructor(private http: HttpClient) {
-    this.product = {name: '', id: 0, price: 0, size: '', quantity: 0};
+    this.product = {name: '', id: 0, price: 0, size: '', quantity: 0, subTotal: 0};
   }
 
   // tslint:disable-next-line:typedef

@@ -21,9 +21,9 @@
     </thead>
   </table>
   <tbody id="tbody">
-  <tr app-product-row *ngFor="let s of products"></tr>
+  <tr app-product-row *ngFor="let s of productsInCart"></tr>
   </tbody>
-  <p *ngIf="products.length === 0">Your cart is empty.</p>
+  <p *ngIf="productsInCart.length === 0">Your cart is empty.</p>
 </div>
 <div class="modal-footer" id="cart-modal-footer">
   <button type="submit" class="btn btn-primary" (click)="submit()" routerLink="/cart-page">Continue</button>
