@@ -7,3 +7,9 @@
 .btn-hidden {
   color: white;
 }
+#registration-modal-body{
+  background-color: gainsboro;
+}
+#registration-modal-footer{
+  background-color: gainsboro;
+}

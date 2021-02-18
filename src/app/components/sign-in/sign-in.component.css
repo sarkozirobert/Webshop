@@ -7,3 +7,9 @@
 .btn-hidden {
   color: white;
 }
+#sign-in-modal-body{
+  background-color: gainsboro;
+}
+#sign-in-modal-footer{
+  background-color: gainsboro;
+}
