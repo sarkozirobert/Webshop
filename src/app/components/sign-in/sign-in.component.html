@@ -5,7 +5,7 @@
     <span aria-hidden="true">X</span>
   </button>
 </div>
-<div class="modal-body">
+<div class="modal-body" id="sign-in-modal-body">
   <form (submit)="submit()" [formGroup]="registrationForm">
     <div class="form-group">
       <div class="mb-6 row">
@@ -32,7 +32,7 @@
 
     </div>
 
-    <div class="modal-footer">
+    <div class="modal-footer" id="sign-in-modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
     <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid" >Sign in</button>
   </div>
