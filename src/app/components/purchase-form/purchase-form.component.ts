@@ -14,6 +14,7 @@ export class PurchaseFormComponent implements OnInit {
   purchaseForm: FormGroup;
 
   constructor() {
+    // @ts-ignore
     this.user = {
       firstName: '',
       lastName: '',
@@ -22,11 +23,11 @@ export class PurchaseFormComponent implements OnInit {
       address: '',
       city: '',
       country: '',
-      zip: 0,
-      phoneNum: 0
+      zipcode: 0,
+      phoneNumber: ''
     };
     // @ts-ignore
-    this.purchaseForm = {firstName: '', lastName: '', email: '', password: '', address: '', city: '', country: '', zip: 0, phoneNum: 0
+    this.purchaseForm = {firstName: '', lastName: '', email: '', password: '', address: '', city: '', country: '', zipcode: 0, phoneNumber: ''
     };
   }
 
@@ -41,8 +42,8 @@ export class PurchaseFormComponent implements OnInit {
       address: new FormControl(this.user.address, Validators.required),
       city: new FormControl(this.user.city, Validators.required),
       country: new FormControl(this.user.country, Validators.required),
-      zip: new FormControl(this.user.zip, Validators.required),
-      phoneNum: new FormControl(this.user.phoneNum, Validators.required)
+      zip: new FormControl(this.user.zipcode, Validators.required),
+      phoneNum: new FormControl(this.user.phoneNumber, Validators.required)
     });
   }
 

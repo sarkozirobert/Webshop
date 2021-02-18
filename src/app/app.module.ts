@@ -17,6 +17,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
+import {CartPageComponent} from './components/cart-page/cart-page.component';
+import {PurchaseFormComponent} from './components/purchase-form/purchase-form.component';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 @NgModule({
@@ -30,7 +32,9 @@ import { FooterComponent } from './components/footer/footer.component';
     ProductDetailsComponent,
     RegistrationModalComponent,
     SignInComponent,
-    FooterComponent
+    FooterComponent,
+    CartPageComponent,
+    PurchaseFormComponent
   ],
   imports: [
     BrowserModule,

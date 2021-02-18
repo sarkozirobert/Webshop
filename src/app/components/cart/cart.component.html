@@ -1,16 +1,31 @@
-
 <div class="modal-header">
   <img src="../../../assets/shopping-cart-1985%20(3).png" alt="">
   <h4 class="modal-title">in cart</h4>
 
-  <button type="button" class="btn btn-hidden"  data-dismiss="modal"  aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <button type="button" class="btn btn-hidden" data-dismiss="modal" aria-label="Close"
+          (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">X</span>
   </button>
 </div>
 <div class="modal-body">
-  <h4> product in cart</h4>
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">img</th>
+      <th scope="col">Product name</th>
+      <th scope="col">Size</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">Remove</th>
+    </tr>
+    </thead>
+  </table>
+  <tbody id="tbody">
+  <tr app-product-row *ngFor="let s of products"></tr>
+  </tbody>
+  <p *ngIf="products.length === 0">Your cart is empty.</p>
 </div>
 <div class="modal-footer">
-  <button type="submit" class="btn btn-primary" (click) ="submit()" >Buy</button>
+  <button type="submit" class="btn btn-primary" (click)="submit()" routerLink="/cart-page">Continue</button>
 </div>
 
