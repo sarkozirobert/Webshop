@@ -9,7 +9,7 @@ import {UserResponse} from '../interfaces/user-response';
   providedIn: 'root'
 })
 export class UserService {
-  private readonly SERVER_URL = 'https://....';
+  private readonly SERVER_URL = 'https://webshopbackend.herokuapp.com/register';
   private userSubject: Subject<User[]>;
 
 
@@ -25,8 +25,8 @@ export class UserService {
       {withCredentials: true});
 
   }
-  addStudent(s: User): Observable<UserResponse>{
-    return this.http.post<UserResponse>( this.SERVER_URL, {user: s},
+  addUser(s: User): Observable<User>{
+    return this.http.post<User>( this.SERVER_URL,  {s},
       {withCredentials: true });
   }
 

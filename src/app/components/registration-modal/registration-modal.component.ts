@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../interfaces/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-registration-modal',
@@ -14,7 +16,7 @@ export class RegistrationModalComponent implements OnInit {
   user: User;
   registrationForm: FormGroup;
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router) {
     this.user = {
       firstName: '',
       lastName: '',
@@ -23,11 +25,12 @@ export class RegistrationModalComponent implements OnInit {
       address: '',
       city: '',
       country: '',
-      zip: 0,
-      phoneNum: 0
+      zipcode: 0,
+      phoneNumber: ''
     };
     // @ts-ignore
-    this.registrationForm = {firstName: '', lastName: '', email: '', password: '', address: '', city: '', country: '', zip: 0, phoneNum: 0
+    // tslint:disable-next-line:max-line-length
+    this.registrationForm = {firstName: '', lastName: '', email: '', password: '', address: '', city: '', country: '', zipcode: 0, phoneNumber: ''
     };
   }
 
@@ -36,7 +39,10 @@ export class RegistrationModalComponent implements OnInit {
   }
 
   submit(): void {
+    this.userService.addUser(this.registrationForm.value).subscribe(response => {
+    // visszajelzés megjelenítése.
     this.activeModal.close();
+    });
   }
 
   createRegistrationForm(): void {
@@ -48,8 +54,8 @@ export class RegistrationModalComponent implements OnInit {
       address: new FormControl(this.user.address, Validators.required),
       city: new FormControl(this.user.city, Validators.required),
       country: new FormControl(this.user.country, Validators.required),
-      zip: new FormControl(this.user.zip, Validators.required),
-      phoneNum: new FormControl(this.user.phoneNum, Validators.required)
+      zipcode: new FormControl(this.user.zipcode, Validators.required),
+      phoneNumber: new FormControl(this.user.phoneNumber, Validators.minLength(6))
     });
   }
 
