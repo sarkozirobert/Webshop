@@ -7,7 +7,7 @@ export interface User {
   address: string;
   city: string;
   country: string;
-  zip: number;
-  phoneNum: number;
+  zipcode: number;
+  phoneNumber: string;
   id?: number;
 }
