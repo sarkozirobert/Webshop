@@ -26,8 +26,7 @@ export class UserService {
 
   }
   addUser(s: User): Observable<User>{
-    return this.http.post<User>( this.SERVER_URL,  {s},
-      {withCredentials: true });
+    return this.http.post<User>( this.SERVER_URL,  s, {withCredentials: true });
   }
 
 }
