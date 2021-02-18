@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
+import {ActivatedRoute, Router} from '@angular/router';
 import { products } from '../../products';
 // @ts-ignore
 import { CartService } from '../../services/cart.service';
@@ -12,12 +11,15 @@ import { CartService } from '../../services/cart.service';
 })
 export class ProductDetailsComponent implements OnInit {
   // @ts-ignore
-  product: { price: number; name: string; description: string; id: number; } ;
+  product: Product;
+
   constructor(
     // this.product={ price: 0,name:'',description:'',id: 0};
     private route: ActivatedRoute,
-    private cartService: CartService
+    private router: Router,
+    private cartService: CartService,
   ) { }
+
   // tslint:disable-next-line:typedef
   addToCart(product: any) {
     this.cartService.addToCart(product);
