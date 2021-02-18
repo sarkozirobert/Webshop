@@ -9,5 +9,4 @@ export interface Product {
   gender: string;
   type: string;
   size: Sizes;
-
 }
