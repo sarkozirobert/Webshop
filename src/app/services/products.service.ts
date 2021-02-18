@@ -10,7 +10,7 @@ import {ProductResponse} from '../interfaces/product-response';
   providedIn: 'root'
 })
 export class ProductsService {
-  private readonly SERVER_URL = 'https://webshopbackend.herokuapp.com/clothes';
+  private readonly SERVER_URL = 'https://webshopbackend.herokuapp.com';
   private productSubject: Subject<Product[]>;
 
 
@@ -21,12 +21,12 @@ export class ProductsService {
     });
   }
   getProducts(): Observable<Product[]> {
-    return this.http.get<ProductResponse>(this.SERVER_URL, {withCredentials: true})
+    return this.http.get<ProductResponse>(this.SERVER_URL + '/clothes', {withCredentials: true})
       .pipe(map(resp => resp.list));
   }
 
   getProductByID(ID: number): Observable<Product> {
-    return this.http.get<ProductResponse>(this.SERVER_URL + '?id=' + ID, {withCredentials: true})
+    return this.http.get<ProductResponse>(this.SERVER_URL + '/clothes/' + ID, {withCredentials: true})
       .pipe(map(response => response.list[0]));
   }
 }
