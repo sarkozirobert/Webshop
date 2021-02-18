@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-import { products } from '../../products';
+import {ActivatedRoute, Router} from '@angular/router';
 // @ts-ignore
 import { CartService } from '../../services/cart.service';
+import {ProductsService} from '../../services/products.service';
+import {Product} from '../../interfaces/product';
 
 @Component({
   selector: 'app-product-details',
@@ -11,13 +11,32 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  // @ts-ignore
-  product: { price: number; name: string; description: string; id: number; } ;
+
+  product: Product;
+
   constructor(
-    // this.product={ price: 0,name:'',description:'',id: 0};
     private route: ActivatedRoute,
-    private cartService: CartService
-  ) { }
+    private router: Router,
+    private cartService: CartService,
+    private productService: ProductsService
+  ) {
+    this.product = {
+      id: 0,
+      name: '',
+      details: '',
+      price: 0,
+      color: '',
+      gender: '',
+      type: '',
+      size: {
+        sizeS: 0,
+        sizeM: 0,
+        sizeL: 0,
+        sizeXl: 0
+      }
+    };
+  }
+
   // tslint:disable-next-line:typedef
   addToCart(product: any) {
     this.cartService.addToCart(product);
@@ -27,8 +46,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
-    // @ts-ignore
-    this.product = products.find(product => product.id === productIdFromRoute);
+    this.productService.getProductByID(productIdFromRoute).subscribe( p => this.product = p);
   }
 
 }

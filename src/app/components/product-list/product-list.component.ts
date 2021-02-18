@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from '../../interfaces/product';
-import {Subscription} from 'rxjs';
 import {ProductsService} from '../../services/products.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Product} from '../../interfaces/product';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +12,11 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   // refreshSubsrciption: Subscription;
 
-  constructor(private productService: ProductsService) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private productService: ProductsService,
+  ) {
     this.products = [];
   }
 
@@ -23,5 +27,4 @@ export class ProductListComponent implements OnInit {
       });
     console.log(this.products);
   }
-
 }

@@ -1,6 +1,6 @@
 <app-top-bar></app-top-bar>
 <div class="container" id="product-cont">
-<h2>Products</h2>
+<!--<h2>Products</h2>-->
 
 <!--input type="text" class="form-control" id="searchbar" placeholder="search" [(ngModel)]="filter"-->
 
@@ -19,9 +19,12 @@
   </p>
 
 </div-->
+  <div class="sidenav" style="background-color: #1976d2;">
+
+  </div>
   <div class="row">
     <div class="col-md-6 col-lg-3" *ngFor="let s of products" >
       <app-card [pr]= 's'></app-card>
-    </div>
-  </div>
+   </div>
+ </div>
 </div>
