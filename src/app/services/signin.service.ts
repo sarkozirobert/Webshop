@@ -3,13 +3,14 @@ import {Observable, Subject} from 'rxjs';
 import {Signin} from '../interfaces/signin';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class SigninService {
-  private readonly SERVER_URL = 'https://webshopbackend.herokuapp.com/login';
+  private readonly SERVER_URL = environment.SERVER_URL + '/login';
   private signinSubject: Subject<Signin[]>;
 
   constructor(private  http: HttpClient, private router: Router) {

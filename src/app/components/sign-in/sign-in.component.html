@@ -12,8 +12,8 @@
         <label for="exampleInputEmail1" class="col-sm-4 col-form-label">Email address</label>
         <div class="col-sm-8">
           <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp"
-                 name="email" formControlName="email"
-                 [ngClass]="{'is-invalid': registrationForm.controls.email.invalid}">
+                 formControlName="email"
+                 [ngClass]="{'is-invalid': registrationForm.controls.email.invalid && registrationForm.controls.email.touched}">
           <div class="invalid-feedback" *ngIf="registrationForm.controls.email.errors?.required">
             You must give an e-mail address!>
           </div>
@@ -22,8 +22,8 @@
         <label for="exampleInputPassword1" class="col-sm-4 col-form-label">Password</label>
         <div class="col-sm-8">
           <input type="password" class="form-control form-control-sm" id="exampleInputPassword1"
-                 name="password" formControlName="password"
-                 [ngClass]="{'is-invalid': registrationForm.controls.password.invalid}">
+                 formControlName="password"
+                 [ngClass]="{'is-invalid': registrationForm.controls.password.invalid && registrationForm.controls.password.touched}">
           <div class="invalid-feedback" *ngIf="registrationForm.controls.password.errors?.required">
             You must give a password!>
           </div>
@@ -33,7 +33,6 @@
     </div>
 
     <div class="modal-footer" id="sign-in-modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
     <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid" >Sign in</button>
   </div>
   </form>
