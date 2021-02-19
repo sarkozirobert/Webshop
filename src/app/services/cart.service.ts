@@ -1,13 +1,12 @@
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {OrderedItem} from '../interfaces/ordered-item';
 
-  import { Injectable } from '@angular/core';
-  import { HttpClient } from '@angular/common/http';
-  import {OrderedItem} from '../interfaces/ordered-item';
-
-  @Injectable({
+@Injectable({
   providedIn: 'root'
 })
 export class CartService {
-    product: OrderedItem;
+  product: OrderedItem;
   items = [];
 
   constructor(private http: HttpClient) {
