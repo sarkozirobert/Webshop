@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CartService} from '../../services/cart.service';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
+import { OrderedItem } from 'src/app/interfaces/ordered-item';
 import {Sizes} from "../../interfaces/sizes";
 
 @Component({
@@ -41,8 +42,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  addToCart(product: any) {
-    this.cartService.addToCart(product);
+  addToCart(orderedItem: OrderedItem) {
+    this.cartService.addToCart(orderedItem);
     window.alert('Your product has been added to the cart!');
   }
 
