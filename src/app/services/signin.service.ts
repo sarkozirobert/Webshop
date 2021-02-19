@@ -3,13 +3,14 @@ import {Observable, Subject} from 'rxjs';
 import {Signin} from '../interfaces/signin';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class SigninService {
-  private readonly SERVER_URL = 'https://webshopbackend.herokuapp.com/login';
+  private readonly SERVER_URL = environment.SERVER_URL + '/login';
   private signinSubject: Subject<Signin[]>;
 
   constructor(private  http: HttpClient, private router: Router) {
@@ -18,7 +19,12 @@ export class SigninService {
       console.log(e);
     });
   }
-  logIn(s: Signin): Observable<Signin>{
-    return this.http.post<Signin>( this.SERVER_URL, s, {withCredentials: true });
+  // tslint:disable-next-line:ban-types
+  logIn(s: string, p: string): Observable<Object>{
+    const fd = new FormData();
+    fd.append('username', s);
+    fd.append('password', p);
+    // tslint:disable-next-line:ban-types
+    return this.http.post<Object>( this.SERVER_URL, fd, {withCredentials: true });
   }
 }
