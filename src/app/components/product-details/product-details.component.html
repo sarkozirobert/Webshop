@@ -1,12 +1,17 @@
 <app-top-bar></app-top-bar>
 
 <main>
-  <h2>Product Details</h2>
-  <div *ngIf="product">
+  <div>
+    <img src="assets/183584.png">
+  </div>
+  <div class="row">
+    <img src="assets/Arctic_Unicorn.gif" id="uni">
+    <div class="details col-lg-10" *ngIf="product">
     <h3>{{ product.name }}</h3>
     <h4>{{ product.price | currency }}</h4>
     <p>{{ product.details }}</p>
-    <button (click)="addToCart(product)">Buy</button>
+    <button (click)="addToCart(product); uniconfirm()">Buy</button>
+    </div>
   </div>
 </main>
 

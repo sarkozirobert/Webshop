@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
+import {timeout} from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-details',
@@ -47,6 +48,10 @@ export class ProductDetailsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
     this.productService.getProductByID(productIdFromRoute).subscribe( p => this.product = p);
+  }
+
+  uniconfirm(): void {
+    timeout(500);
   }
 
 }
