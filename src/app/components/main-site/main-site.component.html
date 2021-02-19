@@ -1,5 +1,5 @@
-
-  <app-top-bar></app-top-bar>
+<app-top-bar></app-top-bar>
+<main>
   <div class="container">
     <ngb-carousel [animation]="true" [interval]="3000"> <!--*ngIf="images"-->
       <ng-template ngbSlide>
@@ -15,7 +15,7 @@
           <img src="../../../assets/blue-shirt.png" alt="Random second slide">
         </div>
         <div class="carousel-caption">
-          <h3>INCREDIBLE PRIZE!</h3>
+          <h3>INCREDIBLE PRICE!</h3>
         </div>
       </ng-template>
       <ng-template ngbSlide>
@@ -42,5 +42,6 @@
         <app-card></app-card>
       </div>
     </div>
-</div>
-  <app-footer></app-footer>
+  </div>
+</main>
+<app-footer></app-footer>

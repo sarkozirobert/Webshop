@@ -4,8 +4,10 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CartService} from '../../services/cart.service';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
+import {timeout} from 'rxjs/operators';
 import { OrderedItem } from 'src/app/interfaces/ordered-item';
 import {Sizes} from '../../interfaces/sizes';
+
 
 @Component({
   selector: 'app-product-details',
@@ -52,6 +54,10 @@ export class ProductDetailsComponent implements OnInit {
     const productIdFromRoute = Number(routeParams.get('productId'));
     this.productService.getProductByID(productIdFromRoute).subscribe(p => this.product = p);
     this.productService.getProductSizeAndQuantity(productIdFromRoute).subscribe(p => this.sizes = p);
+  }
+
+  uniconfirm(): void {
+    timeout(500);
   }
 
 }
