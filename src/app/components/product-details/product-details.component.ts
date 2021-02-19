@@ -5,7 +5,7 @@ import {CartService} from '../../services/cart.service';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
 import { OrderedItem } from 'src/app/interfaces/ordered-item';
-import {Sizes} from "../../interfaces/sizes";
+import {Sizes} from '../../interfaces/sizes';
 
 @Component({
   selector: 'app-product-details',
@@ -13,7 +13,7 @@ import {Sizes} from "../../interfaces/sizes";
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-
+  orderedItem: OrderedItem | undefined;
   product: Product;
   sizes: Sizes;
 
@@ -42,8 +42,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  addToCart(orderedItem: OrderedItem) {
-    this.cartService.addToCart(orderedItem);
+  addToCart(orderedItem: Product) {
+    this.cartService.addToCart(this.orderedItem);
     window.alert('Your product has been added to the cart!');
   }
 

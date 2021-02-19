@@ -26,7 +26,7 @@ export class SignInComponent implements OnInit {
   }
   submit(): void {
     // @ts-ignore
-    this.signinService.logIn(this.registrationForm.value.email,this.registrationForm.value.password).subscribe(response => {
+    this.signinService.logIn(this.registrationForm.value.email, this.registrationForm.value.password).subscribe(response => {
       // visszajelzés megjelenítése.
       this.activeModal.close();
     });
