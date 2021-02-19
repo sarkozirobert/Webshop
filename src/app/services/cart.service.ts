@@ -16,7 +16,7 @@ export class CartService {
   }
 
   // tslint:disable-next-line:typedef
-  addToCart(product: OrderedItem) {
+  addToCart(product: OrderedItem | undefined) {
     // @ts-ignore
     this.items.push(product);
     console.log(this.items);
