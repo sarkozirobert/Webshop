@@ -1,10 +1,13 @@
 <app-top-bar></app-top-bar>
-<h2>Product Details</h2>
 
+<main>
+  <h2>Product Details</h2>
+  <div *ngIf="product">
+    <h3>{{ product.name }}</h3>
+    <h4>{{ product.price | currency }}</h4>
+    <p>{{ product.details }}</p>
+    <button (click)="addToCart(product)">Buy</button>
+  </div>
+</main>
 
-<div *ngIf="product">
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.details }}</p>
-  <button (click)="addToCart(product)">Buy</button>
-</div>
+<app-footer></app-footer>
