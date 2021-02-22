@@ -6,6 +6,8 @@ main {
 
 img {
   margin-right: 60px;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .details {
@@ -86,5 +88,5 @@ button:hover {
 }
 
 #uni {
-
+ transform: rotate(90deg);
 }

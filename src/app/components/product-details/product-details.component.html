@@ -1,24 +1,28 @@
 <app-top-bar></app-top-bar>
 
 <main>
+  <div>
+    <img src="https://webshopbackend.herokuapp.com/images/{{product.imageId}}">
+  </div>
    <div class="row">
-    <img src="assets/Arctic_Unicorn.gif" id="uni">
     <div class="details col-lg-10" *ngIf="product">
-    <h3>{{ product.name }}</h3>
+      <h3>{{ product.name }}</h3>
     <h4>{{ product.price | currency }}</h4>
     <p>{{ product.details }}</p>
       <p> Color: {{ product.color}}</p>
-      <img src="https://webshopbackend.herokuapp.com/images/{{product.imageId}}">
+      <div>
+        <h5> S size available: {{sizes.sizeS}}</h5>
+        <h5> M size available: {{sizes.sizeM}}</h5>
+        <h5> L size available: {{sizes.sizeL}}</h5>
+        <h5> XL size available: {{sizes.sizeXl}}</h5>
+        <div>
+        <img src="assets/Arctic_Unicorn.gif" id="uni">
+        </div>
+      </div>
     <button (click)="addToCart(product); uniconfirm()">Buy</button>
     </div>
-  </div>
+   </div>
 </main>
-<div>
-  <h5> S size available: {{sizes.sizeS}}</h5>
-  <h5> M size available: {{sizes.sizeM}}</h5>
-  <h5> L size available: {{sizes.sizeL}}</h5>
-  <h5> XL size available: {{sizes.sizeXl}}</h5>
-</div>
 
 <app-footer></app-footer>
 
