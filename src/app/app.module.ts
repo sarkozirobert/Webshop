@@ -19,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import {CartPageComponent} from './components/cart-page/cart-page.component';
 import {PurchaseFormComponent} from './components/purchase-form/purchase-form.component';
+import {ProductRowComponent} from './components/product-row/product-row.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
@@ -37,6 +38,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     CartPageComponent,
     PurchaseFormComponent,
     UserProfileComponent,
+    PurchaseFormComponent,
+    ProductRowComponent
   ],
   imports: [
     BrowserModule,

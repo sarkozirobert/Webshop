@@ -7,3 +7,9 @@
 .btn-hidden {
   color: white;
 }
+#cart-modal-body{
+  background-color: gainsboro;
+}
+#cart-modal-footer{
+  background-color: gainsboro;
+}

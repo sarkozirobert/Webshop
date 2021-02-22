@@ -1,13 +1,13 @@
 import {Sizes} from './sizes';
 
 export interface Product {
-  id: number;
+  id?: number;
   name: string;
   details: string;
   price: number;
   color: string;
   gender: string;
   type: string;
-  size: Sizes;
-
+  size?: Sizes;
+  imageId?: number;
 }

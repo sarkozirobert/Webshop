@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Signin} from '../../interfaces/signin';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {SigninService} from '../../services/signin.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -13,7 +15,7 @@ export class SignInComponent implements OnInit {
   signIn: Signin;
   registrationForm: FormGroup;
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(public activeModal: NgbActiveModal, private signinService: SigninService, private router: Router) {
     // tslint:disable-next-line:no-unused-expression
     this.signIn = {email: '', password: ''};
     // @ts-ignore
@@ -23,7 +25,11 @@ export class SignInComponent implements OnInit {
     this.createRegistrationForm();
   }
   submit(): void {
-    this.activeModal.close();
+    // @ts-ignore
+    this.signinService.logIn(this.registrationForm.value.email, this.registrationForm.value.password).subscribe(response => {
+      // visszajelzés megjelenítése.
+      this.activeModal.close();
+    });
   }
   createRegistrationForm(): void {
     this.registrationForm = new FormGroup({
@@ -31,5 +37,4 @@ export class SignInComponent implements OnInit {
       password: new FormControl(this.signIn.password, [Validators.minLength(6), Validators.required])
     });
   }
-
 }

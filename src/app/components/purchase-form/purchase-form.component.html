@@ -2,13 +2,14 @@
 <div class="container">
   <h2 class="title-page" id="purchase-form-h2">Shipping details</h2>
 </div>
+<form [formGroup]="purchaseForm" (submit)="sendPurchase()">
 <div class="container pt-3" id="purchaseForm">
   <div class="form-group">
     <div class="mb-6 row">
       <label for="inputFirstName" class="col-sm-4 col-form-label">First name</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control form-control-sm" id="inputFirstName" name="firstName"
-               [ngClass]="{'is-invalid': purchaseForm.controls.firstName.invalid}">
+        <input type="text" class="form-control form-control-sm" id="inputFirstName" formControlName="firstName"
+               [ngClass]="{'is-invalid': purchaseForm.controls.firstName.invalid && purchaseForm.controls.firstName.touched}">
         <div class="invalid-feedback" *ngIf="purchaseForm.controls.firstName.errors?.required">
           You must give your first name!
         </div>
@@ -19,8 +20,8 @@
     <div class="mb-6 row">
       <label for="inputLastName" class="col-sm-4 col-form-label">Last name</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control form-control-sm" id="inputLastName" name="lastName"
-               [ngClass]="{'is-invalid': purchaseForm.controls.lastName.invalid}">
+        <input type="text" class="form-control form-control-sm" id="inputLastName" formControlName="lastName"
+               [ngClass]="{'is-invalid': purchaseForm.controls.lastName.invalid && purchaseForm.controls.lastName.touched}">
         <div class="invalid-feedback" *ngIf="purchaseForm.controls.lastName.errors?.required">
           You must give your last name!
         </div>
@@ -31,8 +32,8 @@
     <div class="mb-6 row">
       <label for="inputAddress" class="col-sm-4 col-form-label">Address</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control form-control-sm" id="inputAddress" name="address"
-               [ngClass]="{'is-invalid': purchaseForm.controls.address.invalid}">
+        <input type="text" class="form-control form-control-sm" id="inputAddress" formControlName="address"
+               [ngClass]="{'is-invalid': purchaseForm.controls.address.invalid && purchaseForm.controls.address.touched}">
         <div class="invalid-feedback" *ngIf="purchaseForm.controls.address.errors?.required">
           You must give your address!
         </div>
@@ -43,8 +44,8 @@
     <div class="mb-6 row">
       <label for="inputCity" class="col-sm-4 col-form-label">City</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control form-control-sm" id="inputCity" name="city"
-               [ngClass]="{'is-invalid': purchaseForm.controls.city.invalid}">
+        <input type="text" class="form-control form-control-sm" id="inputCity" formControlName="city"
+               [ngClass]="{'is-invalid': purchaseForm.controls.city.invalid && purchaseForm.controls.city.touched}">
         <div class="invalid-feedback" *ngIf="purchaseForm.controls.city.errors?.required">
           You must give your city!
         </div>
@@ -55,8 +56,8 @@
     <div class="mb-4 row">
       <label for="inputCountry" class="col-sm-4 col-form-label">Country</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control form-control-sm" id="inputCountry" name="country"
-               [ngClass]="{'is-invalid': purchaseForm.controls.country.invalid}">
+        <input type="text" class="form-control form-control-sm" id="inputCountry" formControlName="country"
+               [ngClass]="{'is-invalid': purchaseForm.controls.country.invalid && purchaseForm.controls.country.touched}">
         <div class="invalid-feedback" *ngIf="purchaseForm.controls.country.errors?.required">
           You must give your country!
         </div>
@@ -67,9 +68,9 @@
     <div class="mb-6 row">
       <label for="inputZip" class="col-sm-4 col-form-label">Zip</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control form-control-sm" id="inputZip" name="zip"
-               [ngClass]="{'is-invalid': purchaseForm.controls.zip.invalid}">
-        <div class="invalid-feedback" *ngIf="purchaseForm.controls.zip.errors?.required">
+        <input type="text" class="form-control form-control-sm" id="inputZip" formControlName="zipcode"
+               [ngClass]="{'is-invalid': purchaseForm.controls.zipcode.invalid && purchaseForm.controls.zipcode.touched}">
+        <div class="invalid-feedback" *ngIf="purchaseForm.controls.zipcode.errors?.required">
           You must give your zip!
         </div>
       </div>
@@ -79,9 +80,9 @@
     <div class="mb-6 row">
       <label for="inputPhoneNum" class="col-sm-4 col-form-label">Phone number</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control form-control-sm" id="inputPhoneNum" name="phoneNum"
-               [ngClass]="{'is-invalid': purchaseForm.controls.phoneNum.invalid}">
-        <div class="invalid-feedback" *ngIf="purchaseForm.controls.phoneNum.errors?.required">
+        <input type="text" class="form-control form-control-sm" id="inputPhoneNum" formControlName="phoneNumber"
+               [ngClass]="{'is-invalid': purchaseForm.controls.phoneNumber.invalid && purchaseForm.controls.phoneNumber.touched}">
+        <div class="invalid-feedback" *ngIf="purchaseForm.controls.phoneNumber.errors?.required">
           You must give your phone number!
         </div>
       </div>
@@ -93,6 +94,8 @@
   </div>
   <div style="text-align: right">
     <button type="button" class="btn btn-primary" routerLink="/cart-page">Back</button>
-    <button type="button" class="btn btn-success ml-1" routerLink="/purchase-form">Purchase</button>
+    <button type="submit" class="btn btn-success ml-1">Purchase</button>
   </div>
 </div>
+</form>
+<app-footer></app-footer>

@@ -10,8 +10,8 @@ import {SignInComponent} from '../sign-in/sign-in.component';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal) {
+  }
 
   ngOnInit(): void {
   }

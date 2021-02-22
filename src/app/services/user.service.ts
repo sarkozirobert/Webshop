@@ -4,12 +4,13 @@ import {Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {UserResponse} from '../interfaces/user-response';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private readonly SERVER_URL = 'https://webshopbackend.herokuapp.com/register';
+  private readonly SERVER_URL = environment.SERVER_URL + '/register';
   private userSubject: Subject<User[]>;
 
 
@@ -28,6 +29,7 @@ export class UserService {
   addUser(s: User): Observable<User>{
     return this.http.post<User>( this.SERVER_URL,  s,
       {withCredentials: true });
+    return this.http.post<User>( this.SERVER_URL,  s, {withCredentials: true });
   }
 
 }

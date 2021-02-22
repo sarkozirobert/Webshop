@@ -1,23 +1,25 @@
-
-  import { Injectable } from '@angular/core';
-  import { HttpClient } from '@angular/common/http';
-  import {OrderedItem} from '../interfaces/ordered-item';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {OrderedItem} from '../interfaces/ordered-item';
 
   @Injectable({
   providedIn: 'root'
 })
 export class CartService {
     product: OrderedItem;
-  items = [];
+    items: OrderedItem[] | undefined;
 
   constructor(private http: HttpClient) {
-    this.product = {name: '', id: 0, price: 0, size: '', quantity: 0};
+    // @ts-ignore
+    this.product = {name: '', id: 0, price: 0, size: '', quantity: 0, subTotal: 0};
+    this.items = [];
   }
 
   // tslint:disable-next-line:typedef
-  addToCart(product: OrderedItem) {
+  addToCart(product: OrderedItem | undefined) {
     // @ts-ignore
     this.items.push(product);
+    console.log(this.items);
   }
 
   // tslint:disable-next-line:typedef
