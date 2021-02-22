@@ -10,6 +10,7 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+  // @ts-ignore
   private readonly SERVER_URL = environment.SERVER_URL + '/register';
   private userSubject: Subject<User[]>;
 
