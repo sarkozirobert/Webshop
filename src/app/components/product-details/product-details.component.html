@@ -1,15 +1,14 @@
 <app-top-bar></app-top-bar>
 
 <main>
-  <div>
-    <img src="assets/183584.png">
-  </div>
-  <div class="row">
+   <div class="row">
     <img src="assets/Arctic_Unicorn.gif" id="uni">
     <div class="details col-lg-10" *ngIf="product">
     <h3>{{ product.name }}</h3>
     <h4>{{ product.price | currency }}</h4>
     <p>{{ product.details }}</p>
+      <p> Color: {{ product.color}}</p>
+      <img src="https://webshopbackend.herokuapp.com/images/{{product.imageId}}">
     <button (click)="addToCart(product); uniconfirm()">Buy</button>
     </div>
   </div>
