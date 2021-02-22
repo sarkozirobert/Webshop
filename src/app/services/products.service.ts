@@ -38,4 +38,9 @@ export class ProductsService {
     return this.http.get<SizesResponse>(this.SERVER_URL + '/stock/' + ID, {withCredentials: true})
       .pipe(map(response => response.list[0]));
   }
+  getGenderType(): Observable<Product[]> {
+    return this.http.get<ProductResponse>(this.SERVER_URL + '/genders', {withCredentials: true})
+      .pipe(map(response => response.list));
+  }
+
 }

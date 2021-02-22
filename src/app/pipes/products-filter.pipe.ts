@@ -1,14 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {products} from '../products';
+import {Product} from '../interfaces/product';
 
-/*
+
 @Pipe({
-  name: 'productFilter'
+  name: 'productsFilter'
 })
 
-export class ProductFilterPipe implements PipeTransform {
+export class ProductsFilterPipe implements PipeTransform {
 
-  transform(list: products, value: string): products {
+  transform(list: Product[], value: string): any{
     if (value != null || list != null) {
       const productSearch = list.filter(p => p.name.search(new RegExp(value, 'i')) >= 0);
       if (productSearch.length !== 0) {
@@ -19,4 +19,3 @@ export class ProductFilterPipe implements PipeTransform {
     }
   }
 }
-*/

@@ -10,6 +10,7 @@ import {Product} from '../../interfaces/product';
 })
 export class ProductListComponent implements OnInit {
   products: Product[];
+  filter: string;
   // refreshSubsrciption: Subscription;
 
   constructor(
@@ -18,6 +19,7 @@ export class ProductListComponent implements OnInit {
     private productService: ProductsService,
   ) {
     this.products = [];
+    this.filter = '';
   }
 
   ngOnInit(): void {
@@ -25,6 +27,13 @@ export class ProductListComponent implements OnInit {
       s => {
         this.products = s;
       });
-    console.log(this.products);
+    this.productService.getGenderType().subscribe(
+      s => {
+        console.log(s);
+      });
+  }
+
+  genderFilter(): void {
+
   }
 }
