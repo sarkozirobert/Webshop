@@ -5,6 +5,7 @@ import {MainSiteComponent} from './components/main-site/main-site.component';
 import {ProductDetailsComponent} from './components/product-details/product-details.component';
 import {CartPageComponent} from './components/cart-page/cart-page.component';
 import {PurchaseFormComponent} from './components/purchase-form/purchase-form.component';
+import {UserProfileComponent} from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'main'},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'product-list', component: ProductListComponent },
   {path: 'product-details/:productId', component: ProductDetailsComponent},
   {path: 'cart-page', component: CartPageComponent},
-  {path: 'purchase-form', component: PurchaseFormComponent}
+  {path: 'purchase-form', component: PurchaseFormComponent},
+  {path: 'user-profile', component: UserProfileComponent}
   ];
 
 @NgModule({
