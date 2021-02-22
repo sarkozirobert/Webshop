@@ -2,21 +2,18 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {OrderedItem} from '../interfaces/ordered-item';
 
-  @Injectable({
+@Injectable({
   providedIn: 'root'
 })
 export class CartService {
-    product: OrderedItem;
-    items: OrderedItem[] | undefined;
+  items: OrderedItem[];
 
   constructor(private http: HttpClient) {
-    // @ts-ignore
-    this.product = {name: '', id: 0, price: 0, size: '', quantity: 0, subTotal: 0};
     this.items = [];
   }
 
-  // tslint:disable-next-line:typedef
-  addToCart(product: OrderedItem | undefined) {
+  // tslint:disable-next-line:typedef max-line-length
+  addToCart(product: { imageId: number | undefined; quantity: number; size: string; price: number; subtotal: number; name: string; id: number | undefined }) {
     // @ts-ignore
     this.items.push(product);
     console.log(this.items);
