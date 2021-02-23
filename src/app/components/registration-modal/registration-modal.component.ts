@@ -4,6 +4,8 @@ import {User} from '../../interfaces/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
+import {Token} from '../../interfaces/token';
+import {TokenService} from '../../services/token.service';
 
 @Component({
   selector: 'app-registration-modal',
@@ -11,12 +13,14 @@ import {UserService} from '../../services/user.service';
   styleUrls: ['./registration-modal.component.css']
 })
 export class RegistrationModalComponent implements OnInit {
-
+  @Input()
+  token: Token;
   @Input()
   user: User;
   registrationForm: FormGroup;
 
-  constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router) {
+  // tslint:disable-next-line:max-line-length
+  constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router, private tokenService: TokenService) {
     this.user = {
       firstName: '',
       lastName: '',
@@ -28,6 +32,11 @@ export class RegistrationModalComponent implements OnInit {
       zipcode: 0,
       phoneNumber: ''
     };
+    this.token =  {
+      headerName: '',
+      parameterName: '',
+      token: ''
+    };
     // @ts-ignore
     // tslint:disable-next-line:max-line-length
     this.registrationForm = {firstName: '', lastName: '', email: '', password: '', address: '', city: '', country: '', zipcode: 0, phoneNumber: ''
@@ -36,10 +45,16 @@ export class RegistrationModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.createRegistrationForm();
+    this.tokenService.getToken().subscribe(
+      s => {
+        // @ts-ignore
+        this.token = s;
+        console.log(this.token);
+      });
   }
 
   submit(): void {
-    this.userService.addUser(this.registrationForm.value).subscribe(response => {
+    this.userService.addUser(this.token.token, this.registrationForm.value).subscribe(response => {
     // visszajelzés megjelenítése.
     this.activeModal.close();
     });

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {User} from '../interfaces/user';
 import {Observable, Subject} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {UserResponse} from '../interfaces/user-response';
 import {environment} from '../../environments/environment';
@@ -27,8 +27,9 @@ export class UserService {
       {withCredentials: true});
 
   }
-  addUser(s: User): Observable<User>{
-    return this.http.post<User>( this.SERVER_URL,  s, {withCredentials: true });
+  addUser(t: string, s: User): Observable<User>{
+    const newHeaders = new  HttpHeaders({'X-CSRF-TOKEN': t});
+    return this.http.post<User>( this.SERVER_URL,  s, { headers: newHeaders, withCredentials: true });
   }
 
 }
