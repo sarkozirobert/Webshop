@@ -15,7 +15,7 @@ export class MainSiteComponent implements OnInit {
 
   constructor(private productService: ProductsService) {
     this.products = [];
-    this.pr = {id: 0, name: '', details: '', price: 0, color: '', gender: '', type: '', size: undefined};
+    this.pr = {id: 0, name: '', details: '', price: 0, color: '', gender: '', type: '', imageId:  0};
   }
   ngOnInit(): void {
     this.productService.getGenderType().subscribe(
