@@ -6,8 +6,8 @@ import {Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {ProductResponse} from '../interfaces/product-response';
 import {environment} from '../../environments/environment';
-import {Sizes} from "../interfaces/sizes";
-import {SizesResponse} from "../interfaces/sizes-response";
+import {Sizes} from '../interfaces/sizes';
+import {SizesResponse} from '../interfaces/sizes-response';
 
 @Injectable({
   providedIn: 'root'
