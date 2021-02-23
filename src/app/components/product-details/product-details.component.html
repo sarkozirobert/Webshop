@@ -1,25 +1,25 @@
 <app-top-bar xmlns="http://www.w3.org/1999/html"></app-top-bar>
-
-<main>
-  <div class="row">
-    <img src="assets/Arctic_Unicorn.gif" id="uni">
+  <div>
+    <img src="https://webshopbackend.herokuapp.com/images/{{product.imageId}}">
+  </div>
+<div class="container">
+   <div class="row">
     <div class="details col-lg-10" *ngIf="product">
       <h3>{{ product.name }}</h3>
-      <h4>{{ product.price | currency }}</h4>
-      <p>{{ product.details }}</p>
+    <h4>{{ product.price | currency }}</h4>
+    <p>{{ product.details }}</p>
       <p> Color: {{ product.color}}</p>
-      <img src="https://webshopbackend.herokuapp.com/images/{{product.imageId}}">
-      <button (click)="addToCart(product); uniconfirm()">Add to cart</button>
-    </div>
-  </div>
-</main>
-<div class="container">
-  <div class="col">
-    <h5> S size available: {{sizes.sizeS}}</h5>
-    <h5> M size available: {{sizes.sizeM}}</h5>
-    <h5> L size available: {{sizes.sizeL}}</h5>
-    <h5> XL size available: {{sizes.sizeXl}}</h5>
-  </div>
+      <div>
+        <h5> S size available: {{sizes.sizeS}}</h5>
+        <h5> M size available: {{sizes.sizeM}}</h5>
+        <h5> L size available: {{sizes.sizeL}}</h5>
+        <h5> XL size available: {{sizes.sizeXl}}</h5>
+        <div>
+        <img src="assets/Arctic_Unicorn.gif" id="uni">
+        </div>
+      </div>
+    <button (click)="addToCart(product); uniconfirm()">Add to cart</button>
+
   <div class="col">
     <form class="form-inline">
       <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Size</label>
@@ -45,7 +45,7 @@
     </form>
   </div>
 </div>
-
+  </div>
 <app-footer></app-footer>
 
 

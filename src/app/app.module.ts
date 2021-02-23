@@ -21,6 +21,9 @@ import {CartPageComponent} from './components/cart-page/cart-page.component';
 import {PurchaseFormComponent} from './components/purchase-form/purchase-form.component';
 import {ProductRowComponent} from './components/product-row/product-row.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ProductsFilterPipe } from './pipes/products-filter.pipe';
+import { GenderCardComponent } from './components/gender-card/gender-card.component';
+import { GenderFilterPipe } from './pipes/gender-filter.pipe';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 @NgModule({
@@ -39,7 +42,10 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     PurchaseFormComponent,
     UserProfileComponent,
     PurchaseFormComponent,
-    ProductRowComponent
+    ProductRowComponent,
+    ProductsFilterPipe,
+    GenderCardComponent,
+    GenderFilterPipe
   ],
   imports: [
     BrowserModule,
