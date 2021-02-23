@@ -13,6 +13,7 @@ import {SizesResponse} from '../interfaces/sizes-response';
   providedIn: 'root'
 })
 export class ProductsService {
+  // @ts-ignore
   private readonly SERVER_URL = environment.SERVER_URL;
   private productSubject: Subject<Product[]>;
 

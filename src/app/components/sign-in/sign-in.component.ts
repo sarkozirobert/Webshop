@@ -4,6 +4,8 @@ import {Signin} from '../../interfaces/signin';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {SigninService} from '../../services/signin.service';
+import {Token} from '../../interfaces/token';
+import {TokenService} from '../../services/token.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,20 +16,36 @@ export class SignInComponent implements OnInit {
   @Input()
   signIn: Signin;
   registrationForm: FormGroup;
-
-  constructor(public activeModal: NgbActiveModal, private signinService: SigninService, private router: Router) {
+  @Input()
+  token: Token;
+  // tslint:disable-next-line:max-line-length
+  constructor(public activeModal: NgbActiveModal, private signinService: SigninService, private router: Router, private tokenService: TokenService) {
     // tslint:disable-next-line:no-unused-expression
     this.signIn = {email: '', password: ''};
     // @ts-ignore
     this.registrationForm = {email: '', password: ''};
+    this.token =  {
+      headerName: '',
+      parameterName: '',
+      token: ''
+    };
   }
   ngOnInit(): void {
     this.createRegistrationForm();
+    // @ts-ignore
+    this.tokenService.getToken().subscribe(
+      s => {
+        // @ts-ignore
+        this.token = s;
+        console.log(this.token);
+      });
   }
   submit(): void {
     // @ts-ignore
-    this.signinService.logIn(this.registrationForm.value.email, this.registrationForm.value.password).subscribe(response => {
+    // tslint:disable-next-line:max-line-length
+    this.signinService.logIn(this.token.token, this.registrationForm.value.email, this.registrationForm.value.password).subscribe(response => {
       // visszajelzés megjelenítése.
+      console.log(response);
       this.activeModal.close();
     });
   }
