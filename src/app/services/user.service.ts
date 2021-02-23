@@ -8,7 +8,6 @@ import {UserProfile} from '../interfaces/userProfile';
 import {map} from 'rxjs/operators';
 import {UsersResponse} from '../interfaces/users-response';
 import {UserResponse} from '../interfaces/user-response';
-import {exists} from 'fs';
 
 @Injectable({
   providedIn: 'root'
