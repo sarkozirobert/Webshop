@@ -32,6 +32,7 @@ export class ProductDetailsComponent implements OnInit {
       price: 0,
       color: '',
       gender: '',
+      imageId: 0,
       type: '',
       size: {
         sizeS: 0,
@@ -51,9 +52,9 @@ export class ProductDetailsComponent implements OnInit {
       name: this.product.name,
       imageId: this.product.imageId,
       price: this.product.price,
-      size: '',
-      quantity: 0,
-      subtotal: this.product.price * this.orderedItem.quantity
+      size: this.orderedItem.size,
+      quantity: this.orderedItem.quantity,
+      subTotal: this.product.price * this.orderedItem.quantity
     });
     window.alert('Your product has been added to the cart!');
   }

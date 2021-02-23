@@ -6,7 +6,8 @@ import {OrderedItem} from '../../interfaces/ordered-item';
 import {CartService} from '../../services/cart.service';
 
 @Component({
-  selector: 'app-product-row',
+  // tslint:disable-next-line:component-selector
+  selector: 'tr[app-product-row]',
   templateUrl: './product-row.component.html',
   styleUrls: ['./product-row.component.css']
 })
@@ -21,6 +22,7 @@ export class ProductRowComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.orderedProduct.subTotal);
   }
 
 }

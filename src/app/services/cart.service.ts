@@ -13,7 +13,7 @@ export class CartService {
   }
 
   // tslint:disable-next-line:typedef max-line-length
-  addToCart(product: { imageId: number | undefined; quantity: number; size: string; price: number; subtotal: number; name: string; id: number | undefined }) {
+  addToCart(product: { imageId: number; quantity: number; size: string; price: number; subTotal: number; name: string; id: number | undefined }) {
     // @ts-ignore
     this.items.push(product);
     console.log(this.items);

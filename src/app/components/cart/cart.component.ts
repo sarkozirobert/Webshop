@@ -19,8 +19,11 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsInCart = this.cartService.items;
+    console.log(this.productsInCart);
+    console.log(this.productsInCart.length);
   }
   submit(): void {
-      this.activeModal.close();
+    // this.cartService.addToCart(this.productsInCart);
+    this.activeModal.close();
     }
   }

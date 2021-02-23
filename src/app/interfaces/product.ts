@@ -8,6 +8,6 @@ export interface Product {
   color: string;
   gender: string;
   type: string;
-  imageId?: number;
+  imageId: number;
   size?: Sizes;
 }
