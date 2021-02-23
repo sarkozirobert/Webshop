@@ -5,6 +5,7 @@ import {UserProfile} from '../../interfaces/userProfile';
 import {UserService} from '../../services/user.service';
 
 
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -12,7 +13,6 @@ import {UserService} from '../../services/user.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  @Input()
   userProfile: UserProfile;
   profileForm: FormGroup;
 
@@ -38,10 +38,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userService.getUserData().subscribe(response => this.userProfile = response.user);
   }
 
   submit(): void {
-    // tslint:disable-next-line:no-shadowed-variable
     this.userService.modifyUser(this.profileForm.value).subscribe(response => {
       console.log(response);
     });
