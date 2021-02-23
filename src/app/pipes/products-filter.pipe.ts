@@ -13,7 +13,8 @@ export class ProductsFilterPipe implements PipeTransform {
       const productSearch = list.filter(p => p.name.search(new RegExp(value, 'i')) >= 0);
       if (productSearch.length !== 0) {
         return productSearch;
-      } else {
+      }
+      else {
         return list;
       }
     }

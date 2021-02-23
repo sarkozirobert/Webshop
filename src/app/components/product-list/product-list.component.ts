@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ProductsService} from '../../services/products.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../../interfaces/product';
@@ -11,6 +11,9 @@ import {Product} from '../../interfaces/product';
 export class ProductListComponent implements OnInit {
   products: Product[];
   filter: string;
+  filterForGender: string;
+  @Input()
+  pr: Product;
   // refreshSubsrciption: Subscription;
 
   constructor(
@@ -20,20 +23,18 @@ export class ProductListComponent implements OnInit {
   ) {
     this.products = [];
     this.filter = '';
+    this.filterForGender = '';
+    this.pr = {id: 0, name: '', details: '', price: 0, color: '', gender: '', type: '', imageId: 0};
   }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
-      s => {
-        this.products = s;
+      pr => {
+        this.products = pr;
       });
     this.productService.getGenderType().subscribe(
-      s => {
-        console.log(s);
+      pr => {
+        this.products = pr;
       });
-  }
-
-  genderFilter(): void {
-
   }
 }
