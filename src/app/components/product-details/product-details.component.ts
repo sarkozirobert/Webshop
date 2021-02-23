@@ -15,7 +15,7 @@ import {Sizes} from '../../interfaces/sizes';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  orderedItem: OrderedItem | undefined;
+  orderedItem: OrderedItem;
   product: Product;
   sizes: Sizes;
 
@@ -32,6 +32,7 @@ export class ProductDetailsComponent implements OnInit {
       price: 0,
       color: '',
       gender: '',
+      imageId: 0,
       type: '',
       size: {
         sizeS: 0,
@@ -41,11 +42,20 @@ export class ProductDetailsComponent implements OnInit {
       }
     };
     this.sizes = {sizeS: 0, sizeM: 0, sizeL: 0, sizeXl: 0};
+    this.orderedItem = {id: 0, name: '', imageId: 0, price: 0, size: '', quantity: 0, subTotal: 0};
   }
 
   // tslint:disable-next-line:typedef
   addToCart(orderedItem: Product) {
-    this.cartService.addToCart(this.orderedItem);
+    this.cartService.addToCart({
+      id: this.product.id,
+      name: this.product.name,
+      imageId: this.product.imageId,
+      price: this.product.price,
+      size: this.orderedItem.size,
+      quantity: this.orderedItem.quantity,
+      subTotal: this.product.price * this.orderedItem.quantity
+    });
     window.alert('Your product has been added to the cart!');
   }
 
