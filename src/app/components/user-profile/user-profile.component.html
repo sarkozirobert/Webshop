@@ -1,0 +1,108 @@
+<app-top-bar></app-top-bar>
+<form (submit)="submit()" [formGroup]="profileForm">
+  <div class="container">
+    <h2 class="mt-4">User Profile</h2>
+    <ul class="list">
+      <li class="order-history-tab mt-4" id="tab-title-order-history" role="tab" aria-controls="tab-order-history">
+        <a href="#tab-order-history">Order History</a>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Purchased Items</th>
+            <th scope="col">Price</th>
+            <th scope="col">Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+          </tbody>
+        </table>
+      </li>
+      <li class="personal-information-tab" id="tab-title-personal-information" role="tab"
+          aria-controls="tab-personal-information">
+        <a href="#tab-personal-information">Personal Information</a>
+        <div class="form-group mt-3">
+          <div class="mb-6 row">
+            <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-6">
+            <input type="text" id="inputFirstName" formControlName="firstName" name="firstName">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-6 row">
+            <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-6">
+              <input type="text" id="inputLastName" formControlName="lastName" name="lastName">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-6 row">
+            <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-6">
+              <input type="text" id="inputAddress" formControlName="address" name="address">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-6 row">
+            <label for="inputCity" class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-6">
+              <input type="text" id="inputCity" formControlName="city" name="city">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-6 row">
+            <label for="inputCountry" class="col-sm-2 col-form-label">Country</label>
+            <div class="col-sm-6">
+              <input type="text" id="inputCountry" formControlName="country" name="country">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-6 row">
+            <label for="inputZipCode" class="col-sm-2 col-form-label">ZipCode</label>
+            <div class="col-sm-6">
+              <input type="text" id="inputZipCode" formControlName="zipcode" name="zipcode">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-6 row">
+            <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
+            <div class="col-sm-6">
+              <input type="text" id="inputPhone" formControlName="phoneNumber" name="phoneNumber">
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="container-personal" id="tab-personal-information">
+    </div>
+    <div class="container-order">
+    </div>
+  </div>
+  <button type="submit">Save Changes</button>
+</form>
+
+

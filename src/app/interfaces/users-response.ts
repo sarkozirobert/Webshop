@@ -1,9 +1,6 @@
 import {User} from './user';
 
-export interface UserResponse {
-  success: boolean;
-  user: User;
-
+export interface UsersResponse {
   success: boolean;
   user: User[];
 }

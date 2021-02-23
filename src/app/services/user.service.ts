@@ -3,8 +3,12 @@ import {User} from '../interfaces/user';
 import {Observable, Subject} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {UserResponse} from '../interfaces/user-response';
 import {environment} from '../../environments/environment';
+import {UserProfile} from '../interfaces/userProfile';
+import {map} from 'rxjs/operators';
+import {UsersResponse} from '../interfaces/users-response';
+import {UserResponse} from '../interfaces/user-response';
+import {exists} from 'fs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +25,9 @@ export class UserService {
       console.log(e);
     });
   }
-  deleteUser(s: User): Observable<UserResponse>{
+  deleteUser(s: User): Observable<UsersResponse>{
 
-    return this.http.delete<UserResponse>(this.SERVER_URL + '?id=' + s.id,
+    return this.http.delete<UsersResponse>(this.SERVER_URL + '?id=' + s.id,
       {withCredentials: true});
 
   }
@@ -31,5 +35,14 @@ export class UserService {
     const newHeaders = new  HttpHeaders({'X-CSRF-TOKEN': t});
     return this.http.post<User>( this.SERVER_URL,  s, { headers: newHeaders, withCredentials: true });
   }
+  getUserData(): Observable<UserResponse>{
+    return this.http.get<UserResponse>(this.SERVER_URL, {withCredentials: true});
+  }
 
+  modifyUser(s: UserProfile): Observable<UsersResponse>{
+    return this.http.put<UsersResponse>(
+      this.SERVER_URL + '/user',
+      {user: s},
+      {withCredentials: true}
+    ); }
 }
