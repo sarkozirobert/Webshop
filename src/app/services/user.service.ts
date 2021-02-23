@@ -5,12 +5,13 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {UserResponse} from '../interfaces/user-response';
 import {environment} from '../../environments/environment';
+import {UserProfile} from '../interfaces/userProfile';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private readonly SERVER_URL = environment.SERVER_URL + '/register';
+  private readonly SERVER_URL = environment.SERVER_URL;
   private userSubject: Subject<User[]>;
 
 
@@ -27,9 +28,17 @@ export class UserService {
 
   }
   addUser(s: User): Observable<User>{
-    return this.http.post<User>( this.SERVER_URL,  s,
+    return this.http.post<User>( this.SERVER_URL  + '/register',  s,
       {withCredentials: true });
-    return this.http.post<User>( this.SERVER_URL,  s, {withCredentials: true });
+    return this.http.post<User>( this.SERVER_URL  + '/register',  s, {withCredentials: true });
+  }
+
+  modifyUser(s: UserProfile): Observable<UserResponse>{
+    return this.http.put<UserResponse>(
+      this.SERVER_URL + '/user',
+      {user: s},
+      {withCredentials: true}
+    );
   }
 
 }
