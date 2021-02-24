@@ -16,7 +16,7 @@ import {Order} from '../interfaces/order';
 })
 export class UserService {
   // @ts-ignore
-  private readonly SERVER_URL = environment.SERVER_URL + '/register';
+  private readonly SERVER_URL = environment.SERVER_URL;
   private userSubject: Subject<User[]>;
 
 
@@ -48,8 +48,8 @@ export class UserService {
     );
   }
 
-  getOrderData(): Observable<Order[]>{
-    return this.http.get<OrderResponse>(this.SERVER_URL + '/orders', {withCredentials: true})
+  getOrderData(id: number): Observable<Order[]>{
+    return this.http.get<OrderResponse>(this.SERVER_URL + '/user/order/' + '?id=' + id, {withCredentials: true})
       .pipe(map( resp => resp.orders ));
   }
 }

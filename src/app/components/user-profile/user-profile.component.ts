@@ -4,7 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserProfile} from '../../interfaces/userProfile';
 import {UserService} from '../../services/user.service';
 import {Order} from '../../interfaces/order';
-
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -17,8 +17,9 @@ export class UserProfileComponent implements OnInit {
   profileForm: FormGroup;
   orders: Order[];
   showSuccess: boolean;
+  id: number;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private route: ActivatedRoute) {
     this.showSuccess = false;
     this.userProfile = {
       firstName: '',
@@ -39,11 +40,14 @@ export class UserProfileComponent implements OnInit {
       phoneNumber: new FormControl(this.userProfile.phoneNumber, Validators.minLength(6))
     });
     this.orders = [];
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   ngOnInit(): void {
     this.userService.getUserData().subscribe(response => this.userProfile = response);
-    this.userService.getOrderData().subscribe(response => this.orders = response);
+
+    console.log(this.id);
+    this.userService.getOrderData(this.id).subscribe(response => this.orders = response);
   }
 
   submit(): void {
