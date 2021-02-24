@@ -8,7 +8,8 @@ import {UserProfile} from '../interfaces/userProfile';
 import {map} from 'rxjs/operators';
 import {UsersResponse} from '../interfaces/users-response';
 import {UserResponse} from '../interfaces/user-response';
-import {exists} from 'fs';
+import {OrderResponse} from '../interfaces/order-response';
+import {Order} from '../interfaces/order';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +36,8 @@ export class UserService {
     const newHeaders = new  HttpHeaders({'X-CSRF-TOKEN': t});
     return this.http.post<User>( this.SERVER_URL,  s, { headers: newHeaders, withCredentials: true });
   }
-  getUserData(): Observable<UserResponse>{
-    return this.http.get<UserResponse>(this.SERVER_URL, {withCredentials: true});
+  getUserData(): Observable<User>{
+    return this.http.get<UserResponse>(this.SERVER_URL + '/user', {withCredentials: true}).pipe(map(resp => resp.user));
   }
 
   modifyUser(s: UserProfile): Observable<UsersResponse>{
@@ -44,5 +45,11 @@ export class UserService {
       this.SERVER_URL + '/user',
       {user: s},
       {withCredentials: true}
-    ); }
+    );
+  }
+
+  getOrderData(): Observable<Order[]>{
+    return this.http.get<OrderResponse>(this.SERVER_URL + '/orders', {withCredentials: true})
+      .pipe(map( resp => resp.orders ));
+  }
 }

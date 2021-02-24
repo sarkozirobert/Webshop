@@ -4,7 +4,7 @@ export interface Order{
 
   id: number;
   totalPrice: number;
-  status: boolean;
   userID: number;
-  order: OrderedItem[];
+  purchasedClothesList: OrderedItem[];
+  finish: boolean;
 }

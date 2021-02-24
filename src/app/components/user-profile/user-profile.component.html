@@ -15,23 +15,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+          <tr *ngFor="let s of orders" [order]="s">
           </tr>
           </tbody>
         </table>
@@ -39,6 +23,9 @@
       <li class="personal-information-tab" id="tab-title-personal-information" role="tab"
           aria-controls="tab-personal-information">
         <a href="#tab-personal-information">Personal Information</a>
+        <div class="alert alert-success" *ngIf="showSuccess">
+          You've successfully saved your settings.
+        </div>
         <div class="form-group mt-3">
           <div class="mb-6 row">
             <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
@@ -104,5 +91,7 @@
   </div>
   <button type="submit">Save Changes</button>
 </form>
+<app-footer></app-footer>
+
 
 
