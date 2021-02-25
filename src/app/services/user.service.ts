@@ -37,7 +37,7 @@ export class UserService {
     return this.http.post<User>( this.SERVER_URL,  s, { headers: newHeaders, withCredentials: true });
   }
   getUserData(): Observable<User>{
-    return this.http.get<UserResponse>(this.SERVER_URL + '/user', {withCredentials: true}).pipe(map(resp => resp.user));
+    return this.http.get<UserResponse>(this.SERVER_URL + '/user', {withCredentials: true}).pipe(map(resp => resp.t));
   }
 
   modifyUser(s: UserProfile): Observable<UsersResponse>{
@@ -48,8 +48,8 @@ export class UserService {
     );
   }
 
-  getOrderData(id: number): Observable<Order[]>{
-    return this.http.get<OrderResponse>(this.SERVER_URL + '/user/order/' + '?id=' + id, {withCredentials: true})
-      .pipe(map( resp => resp.orders ));
+  getOrderData(): Observable<Order[]>{
+    return this.http.get<OrderResponse>(this.SERVER_URL + '/user/order', {withCredentials: true})
+      .pipe(map( resp => resp.list ));
   }
 }

@@ -18,6 +18,7 @@ export class OrderRowComponent implements OnInit {
       totalPrice: 0,
       userID: 0,
       purchasedClothesList: [],
+      comment: '',
       finish: false
     };
   }

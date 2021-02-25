@@ -6,5 +6,6 @@ export interface Order{
   totalPrice: number;
   userID: number;
   purchasedClothesList: OrderedItem[];
+  comment: '';
   finish: boolean;
 }

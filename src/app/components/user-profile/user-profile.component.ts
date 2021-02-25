@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit {
   profileForm: FormGroup;
   orders: Order[];
   showSuccess: boolean;
-  id: number;
+
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
     this.showSuccess = false;
@@ -40,14 +40,11 @@ export class UserProfileComponent implements OnInit {
       phoneNumber: new FormControl(this.userProfile.phoneNumber, Validators.minLength(6))
     });
     this.orders = [];
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   ngOnInit(): void {
     this.userService.getUserData().subscribe(response => this.userProfile = response);
-
-    console.log(this.id);
-    this.userService.getOrderData(this.id).subscribe(response => this.orders = response);
+    this.userService.getOrderData().subscribe(response => this.orders = response);
   }
 
   submit(): void {
