@@ -24,6 +24,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ProductsFilterPipe } from './pipes/products-filter.pipe';
 import { GenderCardComponent } from './components/gender-card/gender-card.component';
 import { GenderFilterPipe } from './pipes/gender-filter.pipe';
+import { LogoutComponent } from './components/logout/logout.component';
+import { ConfirmAccountComponent } from './components/confirm-account/confirm-account.component';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 @NgModule({
@@ -45,7 +47,9 @@ import { GenderFilterPipe } from './pipes/gender-filter.pipe';
     ProductRowComponent,
     ProductsFilterPipe,
     GenderCardComponent,
-    GenderFilterPipe
+    GenderFilterPipe,
+    LogoutComponent,
+    ConfirmAccountComponent
   ],
   imports: [
     BrowserModule,

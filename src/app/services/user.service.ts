@@ -8,14 +8,13 @@ import {UserProfile} from '../interfaces/userProfile';
 import {map} from 'rxjs/operators';
 import {UsersResponse} from '../interfaces/users-response';
 import {UserResponse} from '../interfaces/user-response';
-import {exists} from 'fs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   // @ts-ignore
-  private readonly SERVER_URL = environment.SERVER_URL + '/register';
+  private readonly SERVER_URL = environment.SERVER_URL;
   private userSubject: Subject<User[]>;
 
 
@@ -33,7 +32,7 @@ export class UserService {
   }
   addUser(t: string, s: User): Observable<User>{
     const newHeaders = new  HttpHeaders({'X-CSRF-TOKEN': t});
-    return this.http.post<User>( this.SERVER_URL,  s, { headers: newHeaders, withCredentials: true });
+    return this.http.post<User>( this.SERVER_URL + '/register',  s, { headers: newHeaders, withCredentials: true });
   }
   getUserData(): Observable<UserResponse>{
     return this.http.get<UserResponse>(this.SERVER_URL, {withCredentials: true});
