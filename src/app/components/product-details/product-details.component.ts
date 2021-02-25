@@ -18,6 +18,7 @@ export class ProductDetailsComponent implements OnInit {
   orderedItem: OrderedItem;
   product: Product;
   sizes: Sizes;
+  allItem: OrderedItem[];
 
   constructor(
     private route: ActivatedRoute,
@@ -43,6 +44,7 @@ export class ProductDetailsComponent implements OnInit {
     };
     this.sizes = {sizeS: 0, sizeM: 0, sizeL: 0, sizeXl: 0};
     this.orderedItem = {id: 0, name: '', imageId: 0, price: 0, size: '', quantity: 0, subTotal: 0};
+    this.allItem = [];
   }
 
   // tslint:disable-next-line:typedef
@@ -65,9 +67,4 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.getProductByID(productIdFromRoute).subscribe(p => this.product = p);
     this.productService.getProductSizeAndQuantity(productIdFromRoute).subscribe(p => this.sizes = p);
   }
-
-  uniconfirm(): void {
-    timeout(500);
-  }
-
 }

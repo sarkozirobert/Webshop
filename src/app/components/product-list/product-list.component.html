@@ -1,15 +1,9 @@
 <app-top-bar></app-top-bar>
 <main>
   <div class="container" id="product-cont">
-    <div class="sidenav">
-      <input type="text" class="form-control" id="searchbar" placeholder="search" [(ngModel)]="filter">
-      <label>gender</label>
-      <select name="gender" (click)="filterForGender">
-        <option *ngFor="let pr of products" [value]="pr.gender">{{pr.gender}}</option>
-      </select>
-    </div>
+          <app-filter (search)="doSearch($event)">Keresés</app-filter>
     <div class="row">
-      <div class="col-md-6 col-lg-3" *ngFor="let pr of products | productsFilter: filter">
+      <div class="col-md-6 col-lg-3" *ngFor="let pr of products" >
         <app-card [pr]='pr'></app-card>
       </div>
     </div>

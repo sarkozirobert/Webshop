@@ -1,0 +1,8 @@
+<div class="sidenav">
+  <input type="text" class="form-control" id="searchbar" placeholder="search" [(ngModel)]="filter.name">
+  <label>gender</label>
+  <select name="gender" [(ngModel)]="filter.gender">
+    <option *ngFor="let cat of categories" value="{{cat.gender}}">{{cat.gender}}</option>
+  </select>
+  <button class="btn btn-secondary btn-block form-button" (click)="onSearch()">Keresés</button>
+</div>
