@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
 
   productsInCart: OrderedItem[];
 
-  constructor(public activeModal: NgbActiveModal, private cartService: CartService) {
+  constructor(public activeModal: NgbActiveModal, public cartService: CartService) {
     this.productsInCart = [];
   }
 
@@ -27,4 +27,13 @@ export class CartComponent implements OnInit {
     // this.cartService.addToCart(this.productsInCart);
     this.activeModal.close();
     }
+
+
+  deleteRow(id: number): void{
+    for (let i = 0; i < this.productsInCart.length; ++i){
+      if (this.productsInCart[i].id === id) {
+        this.productsInCart.splice(i, 1);
+      }
+    }
+  }
   }
