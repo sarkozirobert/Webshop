@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 import {SigninService} from '../../services/signin.service';
 import {Token} from '../../interfaces/token';
 import {TokenService} from '../../services/token.service';
+import {SigninResponse} from '../../interfaces/signin-response';
+import {any} from 'codelyzer/util/function';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,12 +17,15 @@ import {TokenService} from '../../services/token.service';
 export class SignInComponent implements OnInit {
   @Input()
   signIn: Signin;
+  // tslint:disable-next-line:ban-types
+  login: SigninResponse;
   registrationForm: FormGroup;
   @Input()
   token: Token;
-  // tslint:disable-next-line:max-line-length
-  constructor(public activeModal: NgbActiveModal, private signinService: SigninService, private router: Router, private tokenService: TokenService) {
-    // tslint:disable-next-line:no-unused-expression
+  showLoginError: boolean;
+  constructor(public activeModal: NgbActiveModal, private signinService: SigninService,
+              private router: Router, private tokenService: TokenService) {
+    this.showLoginError = false;
     this.signIn = {email: '', password: ''};
     // @ts-ignore
     this.registrationForm = {email: '', password: ''};
@@ -28,6 +33,17 @@ export class SignInComponent implements OnInit {
       headerName: '',
       parameterName: '',
       token: ''
+    };
+    this.login = {
+      success: false,
+      list: {
+        // @ts-ignore
+        id: 0,
+        firstName: '',
+        lastName: '',
+        email: '',
+        userRole: ''
+      },
     };
   }
   ngOnInit(): void {
@@ -41,13 +57,25 @@ export class SignInComponent implements OnInit {
       });
   }
   submit(): void {
-    // @ts-ignore
-    // tslint:disable-next-line:max-line-length
-    this.signinService.logIn(this.token.token, this.registrationForm.value.email, this.registrationForm.value.password).subscribe(response => {
-      // visszajelzés megjelenítése.
-      console.log(response);
-      this.activeModal.close();
-    });
+    this.showLoginError = false;
+    this.signinService.logIn(this.token.token, this.registrationForm.value.email,
+      this.registrationForm.value.password).subscribe(response => {
+          this.login = response;
+          if (this.login.success) {
+            // TODO signinservice eltárolja, hogy beléptünk és ki lépett be
+            localStorage.setItem('firstName', this.login.list[0].firstName);
+            localStorage.setItem('id', String(this.login.list[0].id));
+            localStorage.setItem('token', this.token.token);
+            this.activeModal.close();
+            // tslint:disable-next-line:no-unused-expression
+            location.reload();
+          } else {
+            this.showLoginError = true;
+          }
+    },
+      error => {
+        this.showLoginError = true;
+      });
   }
   createRegistrationForm(): void {
     this.registrationForm = new FormGroup({

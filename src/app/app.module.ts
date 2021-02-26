@@ -24,6 +24,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ProductsFilterPipe } from './pipes/products-filter.pipe';
 import { GenderCardComponent } from './components/gender-card/gender-card.component';
 import { GenderFilterPipe } from './pipes/gender-filter.pipe';
+import { LogoutComponent } from './components/logout/logout.component';
+import { ConfirmAccountComponent } from './components/confirm-account/confirm-account.component';
 import { OrderRowComponent } from './components/order-row/order-row.component';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
@@ -48,6 +50,9 @@ import { OrderRowComponent } from './components/order-row/order-row.component';
     GenderCardComponent,
     GenderFilterPipe,
     OrderRowComponent
+    GenderFilterPipe,
+    LogoutComponent,
+    ConfirmAccountComponent
   ],
   imports: [
     BrowserModule,

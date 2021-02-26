@@ -16,6 +16,7 @@ export class TopBarComponent implements OnInit {
   @Input()
   user: UserProfile;
 
+  firstName: string | null;
   constructor(private modalService: NgbModal) {
     this.user = {
       firstName: '',
@@ -26,6 +27,10 @@ export class TopBarComponent implements OnInit {
       zipcode: 0,
       phoneNumber: ''
     };
+    this.firstName = '';
+    if (localStorage.length > 0) {
+      this.firstName = localStorage.getItem('firstName');
+    }
   }
 
   ngOnInit(): void {

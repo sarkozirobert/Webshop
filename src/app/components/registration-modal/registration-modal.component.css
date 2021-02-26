@@ -1,5 +1,5 @@
 .modal-header{
-  background-color: #1976d2;
+  background-color: rgba(255,198,165,1.0);
 }
 .modal-title{
   color: white;
@@ -8,8 +8,23 @@
   color: white;
 }
 #registration-modal-body{
+  background-image: url("src/assets/pexels-photo-1631677.jpeg");
+  background-size: cover;
+}
+#sign-in-modal-footer{
   background-color: gainsboro;
 }
-#registration-modal-footer{
-  background-color: gainsboro;
+label{
+  color: white;
+}
+.form-control{
+  background-color: rgba(229, 228, 255, 0.0);
+  color: white;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-radius: 0px;
+  border-bottom-color: white;
+  border-bottom-style: solid;
+
 }
