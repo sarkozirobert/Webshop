@@ -3,8 +3,8 @@ import {User} from '../../interfaces/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserProfile} from '../../interfaces/userProfile';
 import {UserService} from '../../services/user.service';
-
-
+import {Order} from '../../interfaces/order';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,8 +15,12 @@ export class UserProfileComponent implements OnInit {
 
   userProfile: UserProfile;
   profileForm: FormGroup;
+  orders: Order[];
+  showSuccess: boolean;
 
-  constructor(private userService: UserService) {
+
+  constructor(private userService: UserService, private route: ActivatedRoute) {
+    this.showSuccess = false;
     this.userProfile = {
       firstName: '',
       lastName: '',
@@ -35,15 +39,19 @@ export class UserProfileComponent implements OnInit {
       zipcode: new FormControl(this.userProfile.zipcode, Validators.required),
       phoneNumber: new FormControl(this.userProfile.phoneNumber, Validators.minLength(6))
     });
+    this.orders = [];
   }
 
   ngOnInit(): void {
-    this.userService.getUserData().subscribe(response => this.userProfile = response.user);
+    this.userService.getUserData().subscribe(response => this.userProfile = response);
+    this.userService.getOrderData().subscribe(response => this.orders = response);
   }
 
   submit(): void {
-    this.userService.modifyUser(this.profileForm.value).subscribe(response => {
-      console.log(response);
+    this.userService.modifyUser(this.profileForm.value).subscribe(() => {
+      this.showSuccess = true;
     });
   }
+
+
 }

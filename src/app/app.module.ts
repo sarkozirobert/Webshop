@@ -26,6 +26,7 @@ import { GenderCardComponent } from './components/gender-card/gender-card.compon
 import { GenderFilterPipe } from './pipes/gender-filter.pipe';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ConfirmAccountComponent } from './components/confirm-account/confirm-account.component';
+import { OrderRowComponent } from './components/order-row/order-row.component';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 @NgModule({
@@ -47,6 +48,8 @@ import { ConfirmAccountComponent } from './components/confirm-account/confirm-ac
     ProductRowComponent,
     ProductsFilterPipe,
     GenderCardComponent,
+    GenderFilterPipe,
+    OrderRowComponent
     GenderFilterPipe,
     LogoutComponent,
     ConfirmAccountComponent
