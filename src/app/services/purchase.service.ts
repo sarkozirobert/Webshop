@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {PurchasePackToSend} from '../interfaces/purchase-pack-to-send';
 import {Observable} from 'rxjs';
 import {PurchasePackToSendResponse} from '../interfaces/purchase-pack-to-send-response';
@@ -13,11 +13,12 @@ export class PurchaseService {
 
   constructor(private  http: HttpClient) { }
 
-  sendPurchase(purchasePack: PurchasePackToSend): Observable<PurchasePackToSendResponse>{
+  sendPurchase(/*t: string,*/ purchasePack: PurchasePackToSend): Observable<PurchasePackToSendResponse>{
+    // const newHeaders = new HttpHeaders({'X-CSRF-TOKEN': t});
     return this.http.post<PurchasePackToSendResponse>(
       this.SERVER_URL + '/orders',
       {order: purchasePack},
-      {withCredentials: true}
+      {/*headers: newHeaders, */withCredentials: true}
     );
   }
 }

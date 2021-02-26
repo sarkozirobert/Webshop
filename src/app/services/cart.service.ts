@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {OrderedItem} from '../interfaces/ordered-item';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,14 @@ export class CartService {
   clearCart() {
     this.items = [];
     return this.items;
+  }
+
+  deleteRow(id: number): void{
+    for (let i = 0; i < this.items.length; ++i){
+      if (this.items[i].id === id) {
+        this.items.splice(i, 1);
+      }
+    }
   }
 }
 

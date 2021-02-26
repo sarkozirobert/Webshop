@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CartComponent} from '../cart/cart.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {RegistrationModalComponent} from '../registration-modal/registration-modal.component';
 import {SignInComponent} from '../sign-in/sign-in.component';
+import {User} from '../../interfaces/user';
+import {UserProfile} from '../../interfaces/userProfile';
 
 @Component({
   selector: 'app-top-bar',
@@ -10,7 +12,25 @@ import {SignInComponent} from '../sign-in/sign-in.component';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+
+  @Input()
+  user: UserProfile;
+
+  firstName: string | null;
   constructor(private modalService: NgbModal) {
+    this.user = {
+      firstName: '',
+      lastName: '',
+      address: '',
+      city: '',
+      country: '',
+      zipcode: 0,
+      phoneNumber: ''
+    };
+    this.firstName = '';
+    if (localStorage.length > 0) {
+      this.firstName = localStorage.getItem('firstName');
+    }
   }
 
   ngOnInit(): void {

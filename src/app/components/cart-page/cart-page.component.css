@@ -12,5 +12,8 @@
   margin-bottom: 100px;
 }
 #shoppingCart-table{
-  background-color: gainsboro;
+  background-color: rgba(255,198,165,1.0);
+}
+#cbody{
+  background-color: rgba(255,198,165,1.0);
 }

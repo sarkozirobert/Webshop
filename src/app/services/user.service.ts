@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import {User} from '../interfaces/user';
 import {Observable, Subject} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {UserProfile} from '../interfaces/userProfile';
 import {map} from 'rxjs/operators';
 import {UsersResponse} from '../interfaces/users-response';
 import {UserResponse} from '../interfaces/user-response';
+import {OrderResponse} from '../interfaces/order-response';
+import {Order} from '../interfaces/order';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  // @ts-ignore
   private readonly SERVER_URL = environment.SERVER_URL;
   private userSubject: Subject<User[]>;
 
@@ -29,14 +32,12 @@ export class UserService {
       {withCredentials: true});
 
   }
-  addUser(s: User): Observable<User>{
-    return this.http.post<User>( this.SERVER_URL  + '/register',  s,
-      {withCredentials: true });
-    return this.http.post<User>( this.SERVER_URL  + '/register',  s, {withCredentials: true });
+  addUser(t: string, s: User): Observable<User>{
+    const newHeaders = new  HttpHeaders({'X-CSRF-TOKEN': t});
+    return this.http.post<User>( this.SERVER_URL,  s, { headers: newHeaders, withCredentials: true });
   }
-
-  getUserData(): Observable<UserResponse>{
-    return this.http.get<UserResponse>(this.SERVER_URL, {withCredentials: true});
+  getUserData(): Observable<User>{
+    return this.http.get<UserResponse>(this.SERVER_URL + '/user', {withCredentials: true}).pipe(map(resp => resp.t));
   }
 
   modifyUser(s: UserProfile): Observable<UsersResponse>{
@@ -47,4 +48,8 @@ export class UserService {
     );
   }
 
+  getOrderData(): Observable<Order[]>{
+    return this.http.get<OrderResponse>(this.SERVER_URL + '/user/order', {withCredentials: true})
+      .pipe(map( resp => resp.list ));
+  }
 }

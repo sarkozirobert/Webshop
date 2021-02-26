@@ -17,6 +17,7 @@ import {ProductFilter} from '../interfaces/product-filter';
 })
 
 export class ProductsService {
+  // @ts-ignore
   private readonly SERVER_URL = environment.SERVER_URL;
   private productSubject: Subject<Product[]>;
 

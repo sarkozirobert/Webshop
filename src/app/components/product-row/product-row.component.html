@@ -5,5 +5,5 @@
 <td>{{orderedProduct.price}}</td>
 <td>{{orderedProduct.subTotal}}</td>
 <td>
-  <button type="button" class="btn btn-danger " id="delete" data-bs-dismiss="modal">Remove</button>
+  <button type="button" class="btn btn-danger " id="delete" (click)="cartService.deleteRow(orderedProduct.id)" data-bs-dismiss="modal">Remove</button>
 </td>
