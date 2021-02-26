@@ -61,7 +61,6 @@ export class SignInComponent implements OnInit {
     this.signinService.logIn(this.token.token, this.registrationForm.value.email,
       this.registrationForm.value.password).subscribe(response => {
           this.login = response;
-          console.log(this.login);
           if (this.login.success) {
             // TODO signinservice eltárolja, hogy beléptünk és ki lépett be
             localStorage.setItem('firstName', this.login.list[0].firstName);

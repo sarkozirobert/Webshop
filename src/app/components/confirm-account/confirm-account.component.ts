@@ -12,16 +12,19 @@ import {ConfirmMessageResponse} from '../../interfaces/confirm-message-response'
 export class ConfirmAccountComponent implements OnInit {
 token: string | null;
 messageConfirm: ConfirmMessageResponse;
-success: boolean;
+  showRegError: boolean;
   constructor(private route: ActivatedRoute, private confirmAccountService: ConfirmAccountService,
               private router: Router) {
     this.token = '';
     this.messageConfirm = {
       success : false,
       // @ts-ignore
-      list : ''
+      message: {
+        // @ts-ignore
+        message: ''
+      }
     };
-    this.success = false;
+    this.showRegError = false;
   }
 
   ngOnInit(): void {
@@ -30,6 +33,9 @@ success: boolean;
       s => {
         // @ts-ignore
         this.messageConfirm = s;
+        if (!this.messageConfirm.success){
+          this.showRegError = true;
+        }
   });
   }
 

@@ -8,6 +8,7 @@ import {ConfirmMessageResponse} from '../interfaces/confirm-message-response';
 import {ConfirmMessage} from '../interfaces/confirm-message';
 import {Token} from '../interfaces/token';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +24,10 @@ export class ConfirmAccountService {
     this.messageConfirm = {
       success : false,
       // @ts-ignore
-      list : ''
+      message: {
+        // @ts-ignore
+        message: ''
+      }
     };
   }
   // tslint:disable-next-line:ban-types
@@ -31,6 +35,6 @@ export class ConfirmAccountService {
     // @ts-ignore
     // tslint:disable-next-line:ban-types
     return this.http.get<ConfirmMessageResponse>( this.SERVER_URL + '?token=' + t , { withCredentials: true })
-      .pipe(map(resp =>  this.messageConfirm));
+      .pipe(map(resp => resp ));
   }
 }
