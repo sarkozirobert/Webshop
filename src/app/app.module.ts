@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainSiteComponent } from './components/main-site/main-site.component';
@@ -24,8 +23,10 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ProductsFilterPipe } from './pipes/products-filter.pipe';
 import { GenderCardComponent } from './components/gender-card/gender-card.component';
 import { GenderFilterPipe } from './pipes/gender-filter.pipe';
+import { FilterComponent } from './components/filter/filter.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ConfirmAccountComponent } from './components/confirm-account/confirm-account.component';
+import { OrderRowComponent } from './components/order-row/order-row.component';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 @NgModule({
@@ -48,6 +49,8 @@ import { ConfirmAccountComponent } from './components/confirm-account/confirm-ac
     ProductsFilterPipe,
     GenderCardComponent,
     GenderFilterPipe,
+    FilterComponent
+    OrderRowComponent,
     LogoutComponent,
     ConfirmAccountComponent
   ],

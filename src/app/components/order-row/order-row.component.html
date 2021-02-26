@@ -1,0 +1,10 @@
+<td scope="row">{{order.id}}</td>
+<tr *ngFor="let pc of order.purchasedClothesList">
+  <td>{{pc.id}}</td>
+  <td>{{pc.quantity}}</td>
+  <td>{{pc.name}}</td>
+  <td>{{pc.size}}</td>
+</tr>
+<td>{{order.totalPrice}}</td>
+
+

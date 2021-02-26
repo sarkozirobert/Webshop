@@ -1,6 +1,6 @@
 import {Product} from './product';
 
 export interface ProductResponse {
- // success: boolean;
+  success: boolean;
   list: Product[];
 }
