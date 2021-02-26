@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit,} from '@angular/core';
 import {ProductsService} from '../../services/products.service';
 import {Category} from '../../interfaces/category';
 
@@ -13,6 +13,7 @@ export class GenderCardComponent implements OnInit {
   @Input()
   cat: Category;
 
+
   constructor(private productService: ProductsService) {
     this.categories = [];
     this.cat = {gender: '', imageId: 0};
@@ -24,5 +25,4 @@ export class GenderCardComponent implements OnInit {
         this.categories = cat;
       });
   }
-
 }

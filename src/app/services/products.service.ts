@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Product} from '../interfaces/product';
 import {Observable, Subject} from 'rxjs';
@@ -49,8 +49,9 @@ export class ProductsService {
       .pipe(map(response => response.list));
   }
 
-  getRequestFilter(productFilter: ProductFilter): Observable<Product[]>{
-      const filter = {
+  getRequestFilter(t: string, productFilter: ProductFilter): Observable<Product[]>{
+    const newHeaders = new HttpHeaders({'X-CSRF-TOKEN': t});
+    const filter = {
         name: productFilter.name,
         gender: productFilter.gender,
         type: productFilter.type,
@@ -58,8 +59,8 @@ export class ProductsService {
         priceMin: productFilter.priceMin,
         priceMax: productFilter.priceMax,
       };
-      return this.http.post<ProductResponse>(this.SERVER_URL + '/clothes/filter', filter,
-       {withCredentials: true})
+    return this.http.post<ProductResponse>(this.SERVER_URL + '/clothes/filter', filter,
+       {headers: newHeaders, withCredentials: true})
       .pipe(map(response => response.list));
   }
 }

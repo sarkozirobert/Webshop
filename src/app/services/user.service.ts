@@ -11,6 +11,7 @@ import {UserResponse} from '../interfaces/user-response';
 import {ConfirmMessageResponse} from '../interfaces/confirm-message-response';
 import {OrderResponse} from '../interfaces/order-response';
 import {Order} from '../interfaces/order';
+import {ConfirmMessageResponse} from '../interfaces/confirm-message-response';
 
 @Injectable({
   providedIn: 'root'
