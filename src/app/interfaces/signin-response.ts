@@ -1,5 +1,6 @@
-import {Signin} from './signin';
+import {LoginedUser} from './logined-user';
 
 export interface SigninResponse {
-  signin: Signin[];
+  success: boolean;
+  list: LoginedUser[];
 }
