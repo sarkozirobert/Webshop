@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardComponent } from './components/card/card.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import {RouterModule} from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { RegistrationModalComponent } from './components/registration-modal/registration-modal.component';
@@ -27,7 +26,6 @@ import { FilterComponent } from './components/filter/filter.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ConfirmAccountComponent } from './components/confirm-account/confirm-account.component';
 import { OrderRowComponent } from './components/order-row/order-row.component';
-// import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 @NgModule({
   declarations: [

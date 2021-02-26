@@ -13,6 +13,7 @@ export class MainSiteComponent implements OnInit {
   @Input()
   cat: Category;
 
+
   constructor(private productService: ProductsService) {
     this.categories = [];
     this.cat = {gender: '', imageId: 0};

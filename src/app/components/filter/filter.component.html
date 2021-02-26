@@ -1,8 +1,29 @@
-<div class="sidenav">
-  <input type="text" class="form-control" id="searchbar" placeholder="search" [(ngModel)]="filter.name">
-  <label>gender</label>
-  <select name="gender" [(ngModel)]="filter.gender">
-    <option *ngFor="let cat of categories" value="{{cat.gender}}">{{cat.gender}}</option>
-  </select>
-  <button class="btn btn-secondary btn-block form-button" (click)="onSearch()">Keresés</button>
+<div class="form-row">
+  <div class="form-group col-md-2">
+    <label for="search">search</label>
+    <input type="text" class="form-control" id="search" placeholder="search" [(ngModel)]="filter.name">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="genderSearch">gender</label>
+    <select class="custom-select" name="gender" id="genderSearch" [(ngModel)]="filter.gender">
+      <option *ngFor="let cat of categories" value="{{cat.gender}}">{{cat.gender}}</option>
+    </select>
+  </div>
+  <div class="form-group col-md-2">
+    <label for="colorSearch">color</label>
+    <select class="custom-select" name="color" id="colorSearch" [(ngModel)]="filter.color">
+      <option *ngFor="let pr of products" value="{{pr.color}}">{{pr.color}}</option>
+    </select>
+  </div>
+  <div class="form-group col-md-2">
+    <label for="min">min price</label>
+    <input type="number" class="form-control" id="min" [(ngModel)]="filter.priceMin">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="max">max price</label>
+    <input type="number" class="form-control" id="max" [(ngModel)]="filter.priceMax">
+  </div>
+  <div class="form-group col-md-2">
+    <button class="btn btn-secondary btn-block form-button" (click)="onSearch()">Search</button>
+  </div>
 </div>

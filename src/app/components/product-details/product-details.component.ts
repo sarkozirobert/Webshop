@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-// @ts-ignore
 import {CartService} from '../../services/cart.service';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
-import {timeout} from 'rxjs/operators';
 import { OrderedItem } from 'src/app/interfaces/ordered-item';
 import {Sizes} from '../../interfaces/sizes';
 
