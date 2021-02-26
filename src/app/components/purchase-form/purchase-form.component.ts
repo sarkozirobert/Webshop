@@ -56,8 +56,8 @@ export class PurchaseFormComponent implements OnInit {
     this.p.orderedItems = this.productsInCart;
     this.p.totalPrice = this.sumPrice(this.p.orderedItems);
     this.parseQuantityToNumber(this.p.orderedItems);
-    // console.log(this.p);
-    // console.log(typeof this.p.orderedItems[0].quantity);
+    console.log(this.p);
+    console.log(typeof this.p.orderedItems[0].quantity);
     this.tokenService.getToken().subscribe(
       s => {
         // @ts-ignore
