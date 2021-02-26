@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
 import {Token} from '../../interfaces/token';
 import {TokenService} from '../../services/token.service';
+import {ConfirmMessageResponse} from '../../interfaces/confirm-message-response';
+import {ConfirmMessage} from '../../interfaces/confirm-message';
 
 @Component({
   selector: 'app-registration-modal',
@@ -18,6 +20,8 @@ export class RegistrationModalComponent implements OnInit {
   @Input()
   user: User;
   registrationForm: FormGroup;
+  showRegError: boolean;
+  confirm: ConfirmMessageResponse;
 
   // tslint:disable-next-line:max-line-length
   constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router, private tokenService: TokenService) {
@@ -41,6 +45,15 @@ export class RegistrationModalComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     this.registrationForm = {firstName: '', lastName: '', email: '', password: '', address: '', city: '', country: '', zipcode: 0, phoneNumber: ''
     };
+    this.showRegError = false;
+    // @ts-ignore
+    this.confirm = {
+      success: false,
+      message: {
+        // @ts-ignore
+        message: ''
+      },
+    };
   }
 
   ngOnInit(): void {
@@ -54,9 +67,17 @@ export class RegistrationModalComponent implements OnInit {
   }
 
   submit(): void {
+    this.showRegError = false;
     this.userService.addUser(this.token.token, this.registrationForm.value).subscribe(response => {
-    // visszajelzés megjelenítése.
-    this.activeModal.close();
+      this.confirm = response;
+      if (this.confirm.success) {
+        this.activeModal.close();
+      }else{
+        this.showRegError = true;
+      }
+    },
+      error => {
+          this.showRegError = true;
     });
   }
 

@@ -6,6 +6,9 @@
   </button>
 </div>
 <div class="modal-body" id="sign-in-modal-body">
+  <div class="alert alert-danger" *ngIf="showLoginError">
+    Login failed.
+  </div>
   <form (submit)="submit()" [formGroup]="registrationForm">
     <div class="form-group">
       <div class="mb-6 row">
@@ -29,11 +32,9 @@
           </div>
         </div>
       </div>
-
     </div>
-
-    <div class="modal-footer" id="sign-in-modal-footer">
-    <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid" >Sign in</button>
-  </div>
+      <div class="container-fluid">
+      <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid" >Sign in</button>
+      </div>
   </form>
 </div>

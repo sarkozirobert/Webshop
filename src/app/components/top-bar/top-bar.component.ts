@@ -10,7 +10,12 @@ import {SignInComponent} from '../sign-in/sign-in.component';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  firstName: string | null;
   constructor(private modalService: NgbModal) {
+    this.firstName = '';
+    if (localStorage.length > 0) {
+      this.firstName = localStorage.getItem('firstName');
+    }
   }
 
   ngOnInit(): void {

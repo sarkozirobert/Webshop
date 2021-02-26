@@ -18,6 +18,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // @ts-ignore
     this.productsInCart = this.cartService.items;
     console.log(this.productsInCart);
     console.log(this.productsInCart.length);

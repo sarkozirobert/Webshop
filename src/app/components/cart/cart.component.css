@@ -1,5 +1,5 @@
 .modal-header{
-  background-color: #1976d2;
+  background-color: rgba(255,198,165,1.0);
 }
 .modal-title{
   color: white;
@@ -8,7 +8,8 @@
   color: white;
 }
 #cart-modal-body{
-  background-color: gainsboro;
+  background-image: url("src/assets/pexels-photo-1631677.jpeg");
+  background-size: cover;
 }
 #cart-modal-footer{
   background-color: gainsboro;
