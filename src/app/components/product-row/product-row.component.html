@@ -1,9 +1,11 @@
-<td scope="row"><img src="http://webshopbackend.herokuapp.com/images/{{orderedProduct.imageId}}"></td>
-<td>{{orderedProduct.name}}</td>
-<td>{{orderedProduct.size}}</td>
-<td>{{orderedProduct.quantity}}</td>
-<td>{{orderedProduct.price}}</td>
-<td>{{orderedProduct.subTotal}}</td>
-<td>
-  <button type="button" class="btn btn-danger " id="delete" (click)="cartService.deleteRow(orderedProduct.id)" data-bs-dismiss="modal">Remove</button>
+<td class="col" id="imgTd"><img src="http://webshopbackend.herokuapp.com/images/{{orderedProduct.imageId}}"></td>
+<td class="col" id="nameTd">{{orderedProduct.name}}</td>
+<td class="col" id="sizeTd">{{orderedProduct.size}}</td>
+<td class="col" id="quantityTd">{{orderedProduct.quantity}}</td>
+<td class="col" id="priceTd">{{orderedProduct.price}}</td>
+<!--<td>{{orderedProduct.subTotal}}</td>-->
+<td id="buttonTd">
+  <button type="button" class="btn btn-danger " id="delete" (click)="cartService.deleteRow(orderedProduct.id)"
+          data-bs-dismiss="modal">Remove
+  </button>
 </td>

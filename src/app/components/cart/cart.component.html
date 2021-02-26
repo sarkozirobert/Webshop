@@ -16,16 +16,16 @@
       <th scope="col">Size</th>
       <th scope="col">Quantity</th>
       <th scope="col">Price</th>
-      <th scope="col">Subtotal</th>
+      <!--      <th scope="col">Subtotal</th>-->
       <th scope="col">Remove</th>
     </tr>
     </thead>
   </table>
   <tbody id="tbody">
-  <tr app-product-row *ngFor="let s of productsInCart" [orderedProduct] = "s"></tr>
+  <tr app-product-row *ngFor="let s of productsInCart" [orderedProduct]="s"></tr>
   </tbody>
   <p *ngIf="productsInCart.length === 0">Your cart is empty.</p>
-<div class="container-fluid">
-  <button type="submit" class="btn btn-primary" (click)="submit()" routerLink="/cart-page">Continue</button>
-</div>
+  <div class="container-fluid">
+    <button type="submit" class="btn btn-primary" (click)="submit()" routerLink="/cart-page">Continue</button>
+  </div>
 </div>
