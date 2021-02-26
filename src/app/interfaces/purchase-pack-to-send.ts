@@ -5,4 +5,5 @@ export interface PurchasePackToSend {
   orderedItems: OrderedItem[];
   id: number;
   totalPrice: number;
+  comment: string;
 }

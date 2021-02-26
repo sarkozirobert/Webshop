@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {Signin} from '../interfaces/signin';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {Token} from '../interfaces/token';
-
+import {SignInComponent} from '../components/sign-in/sign-in.component';
 
 
 @Injectable({
@@ -22,13 +22,14 @@ export class SigninService {
       console.log(e);
     });
   }
+
   // tslint:disable-next-line:ban-types
-  logIn( t: string, s: string, p: string): Observable<Object>{
+  logIn(t: string, s: string, p: string): Observable<Object> {
     const fd = new FormData();
     fd.append('username', s);
     fd.append('password', p);
-    const newHeaders = new  HttpHeaders({'X-CSRF-TOKEN': t});
+    const newHeaders = new HttpHeaders({'X-CSRF-TOKEN': t});
     // tslint:disable-next-line:ban-types
-    return this.http.post<Object>( this.SERVER_URL, fd, { headers: newHeaders, withCredentials: true });
+    return this.http.post<Object>(this.SERVER_URL, fd, {headers: newHeaders, withCredentials: true});
   }
 }
