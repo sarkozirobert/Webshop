@@ -23,9 +23,11 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ProductsFilterPipe } from './pipes/products-filter.pipe';
 import { GenderCardComponent } from './components/gender-card/gender-card.component';
 import { GenderFilterPipe } from './pipes/gender-filter.pipe';
+// @ts-ignore
 import { FilterComponent } from './components/filter/filter.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ConfirmAccountComponent } from './components/confirm-account/confirm-account.component';
+// @ts-ignore
 import { OrderRowComponent } from './components/order-row/order-row.component';
 // import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
@@ -49,7 +51,7 @@ import { OrderRowComponent } from './components/order-row/order-row.component';
     ProductsFilterPipe,
     GenderCardComponent,
     GenderFilterPipe,
-    FilterComponent
+    FilterComponent,
     OrderRowComponent,
     LogoutComponent,
     ConfirmAccountComponent
