@@ -8,10 +8,14 @@ import {ProductResponse} from '../interfaces/product-response';
 import {environment} from '../../environments/environment';
 import {Sizes} from '../interfaces/sizes';
 import {SizesResponse} from '../interfaces/sizes-response';
+import {Category} from '../interfaces/category';
+import {CategoryResponse} from '../interfaces/category-response';
+import {ProductFilter} from '../interfaces/product-filter';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductsService {
   // @ts-ignore
   private readonly SERVER_URL = environment.SERVER_URL;
@@ -39,9 +43,23 @@ export class ProductsService {
     return this.http.get<SizesResponse>(this.SERVER_URL + '/stock/' + ID, {withCredentials: true})
       .pipe(map(response => response.list[0]));
   }
-  getGenderType(): Observable<Product[]> {
-    return this.http.get<ProductResponse>(this.SERVER_URL + '/genders', {withCredentials: true})
+
+  getGenderType(): Observable<Category[]> {
+    return this.http.get<CategoryResponse>(this.SERVER_URL + '/genders', {withCredentials: true})
       .pipe(map(response => response.list));
   }
 
+  getRequestFilter(productFilter: ProductFilter): Observable<Product[]>{
+      const filter = {
+        name: productFilter.name,
+        gender: productFilter.gender,
+        type: productFilter.type,
+        color: productFilter.color,
+        priceMin: productFilter.priceMin,
+        priceMax: productFilter.priceMax,
+      };
+      return this.http.post<ProductResponse>(this.SERVER_URL + '/clothes/filter', filter,
+       {withCredentials: true})
+      .pipe(map(response => response.list));
+  }
 }

@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ProductsService} from '../../services/products.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../../interfaces/product';
+import {Category} from '../../interfaces/category';
+import {ProductFilter} from '../../interfaces/product-filter';
 
 @Component({
   selector: 'app-product-list',
@@ -10,8 +12,6 @@ import {Product} from '../../interfaces/product';
 })
 export class ProductListComponent implements OnInit {
   products: Product[];
-  filter: string;
-  filterForGender: string;
   @Input()
   pr: Product;
   // refreshSubsrciption: Subscription;
@@ -22,8 +22,6 @@ export class ProductListComponent implements OnInit {
     private productService: ProductsService,
   ) {
     this.products = [];
-    this.filter = '';
-    this.filterForGender = '';
     this.pr = {id: 0, name: '', details: '', price: 0, color: '', gender: '', type: '', imageId: 0};
   }
 
@@ -32,9 +30,9 @@ export class ProductListComponent implements OnInit {
       pr => {
         this.products = pr;
       });
-    this.productService.getGenderType().subscribe(
-      pr => {
-        this.products = pr;
-      });
+  }
+
+  doSearch(filter: ProductFilter): void {
+    this.productService.getRequestFilter(filter).subscribe(resp => this.products = resp);
   }
 }
