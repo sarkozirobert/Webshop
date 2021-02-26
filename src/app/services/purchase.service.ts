@@ -13,12 +13,12 @@ export class PurchaseService {
 
   constructor(private  http: HttpClient) { }
 
-  sendPurchase(/*t: string,*/ purchasePack: PurchasePackToSend): Observable<PurchasePackToSendResponse>{
-    // const newHeaders = new HttpHeaders({'X-CSRF-TOKEN': t});
+  sendPurchase(t: string, purchasePack: PurchasePackToSend): Observable<PurchasePackToSendResponse>{
+    const newHeaders = new HttpHeaders({'X-CSRF-TOKEN': t});
     return this.http.post<PurchasePackToSendResponse>(
       this.SERVER_URL + '/orders',
       {order: purchasePack},
-      {/*headers: newHeaders, */withCredentials: true}
+      {headers: newHeaders, withCredentials: true}
     );
   }
 }

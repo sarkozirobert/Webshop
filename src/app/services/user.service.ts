@@ -8,6 +8,7 @@ import {UserProfile} from '../interfaces/userProfile';
 import {map} from 'rxjs/operators';
 import {UsersResponse} from '../interfaces/users-response';
 import {UserResponse} from '../interfaces/user-response';
+import {ConfirmMessageResponse} from '../interfaces/confirm-message-response';
 import {OrderResponse} from '../interfaces/order-response';
 import {Order} from '../interfaces/order';
 
@@ -32,9 +33,9 @@ export class UserService {
       {withCredentials: true});
 
   }
-  addUser(t: string, s: User): Observable<User>{
+  addUser(t: string, s: User): Observable<ConfirmMessageResponse>{
     const newHeaders = new  HttpHeaders({'X-CSRF-TOKEN': t});
-    return this.http.post<User>( this.SERVER_URL,  s, { headers: newHeaders, withCredentials: true });
+    return this.http.post<ConfirmMessageResponse>( this.SERVER_URL,  s, { headers: newHeaders, withCredentials: true });
   }
   getUserData(): Observable<User>{
     return this.http.get<UserResponse>(this.SERVER_URL + '/user', {withCredentials: true}).pipe(map(resp => resp.t));
