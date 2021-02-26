@@ -5,6 +5,8 @@ import {UserProfile} from '../../interfaces/userProfile';
 import {UserService} from '../../services/user.service';
 import {Order} from '../../interfaces/order';
 import {ActivatedRoute} from '@angular/router';
+import {TokenService} from '../../services/token.service';
+import {Token} from '../../interfaces/token';
 
 @Component({
   selector: 'app-user-profile',
@@ -18,8 +20,11 @@ export class UserProfileComponent implements OnInit {
   orders: Order[];
   showSuccess: boolean;
 
+  @Input()
+  token: Token;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {
+
+  constructor(private userService: UserService, private route: ActivatedRoute, private tokenService: TokenService ) {
     this.showSuccess = false;
     this.userProfile = {
       firstName: '',
@@ -40,15 +45,24 @@ export class UserProfileComponent implements OnInit {
       phoneNumber: new FormControl(this.userProfile.phoneNumber, Validators.minLength(6))
     });
     this.orders = [];
+
+    this.token =  {
+      headerName: '',
+      parameterName: '',
+      token: ''
+    };
   }
 
   ngOnInit(): void {
-    this.userService.getUserData().subscribe(response => this.userProfile = response);
-    this.userService.getOrderData().subscribe(response => this.orders = response);
+    this.userService.getUserData().subscribe(r => this.userProfile = r);
+    this.userService.getOrderData().subscribe(resp => this.orders = resp);
+    this.tokenService.getToken().subscribe(res => this.token = res);
+    console.log(this.token);
   }
 
   submit(): void {
-    this.userService.modifyUser(this.profileForm.value).subscribe(() => {
+    this.userService.modifyUser(this.token.token, this.profileForm.value).subscribe(response => {
+      this.userService.refreshUser(response.t);
       this.showSuccess = true;
     });
   }
