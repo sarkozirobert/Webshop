@@ -49,7 +49,7 @@ import { OrderRowComponent } from './components/order-row/order-row.component';
     ProductsFilterPipe,
     GenderCardComponent,
     GenderFilterPipe,
-    FilterComponent
+    FilterComponent,
     OrderRowComponent,
     LogoutComponent,
     ConfirmAccountComponent
