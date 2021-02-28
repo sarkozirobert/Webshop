@@ -3,7 +3,18 @@ img {
   height: 50%;
 }
 
+h3 {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .picsum-img-wrapper {
   text-align: center;
+  margin-top: 20px;
+}
+
+.gender-card {
+  display: flex;
+  flex-direction: column;
 }
 

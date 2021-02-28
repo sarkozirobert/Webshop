@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from '../../interfaces/product';
-import {Sizes} from '../../interfaces/sizes';
 
 @Component({
   selector: 'app-card',

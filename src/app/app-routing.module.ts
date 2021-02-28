@@ -12,6 +12,7 @@ import {ConfirmAccountComponent} from './components/confirm-account/confirm-acco
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'main'},
   {path: 'main', component: MainSiteComponent},
+  {path: 'main/:productId', component: MainSiteComponent},
   {path: 'product-list', component: ProductListComponent },
   {path: 'product-list/:category', component: ProductListComponent },
   {path: 'product-details/:productId', component: ProductDetailsComponent},

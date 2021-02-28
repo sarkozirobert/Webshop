@@ -2,17 +2,22 @@
 footer {
   background-color: rgba(229, 228, 255, 0.0);
   display: flex;
-/*  align-self: flex-end;*/
   position: relative;
   left: 0px;
   width: 100%;
+  justify-content: space-between;
+}
+
+.social {
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
 }
 
 .icon-fb, .icon-insta {
   width: 32px;
   height: auto;
   margin: 20px;
-  margin-top: 20px;
 }
 
 a {

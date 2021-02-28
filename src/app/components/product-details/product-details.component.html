@@ -5,7 +5,7 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="details col-lg-10" *ngIf="product">
+      <div class="details col-lg-5" *ngIf="product">
         <h3>{{ product.name }}</h3>
         <h4>{{ product.price | currency }}</h4>
         <p>{{ product.details }}</p>
@@ -14,31 +14,33 @@
           <form class="form-inline">
             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Size</label>
             <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="size"
-                    [(ngModel)]="orderedItem.size">
-              <option selected>Select size</option>
+            [(ngModel)]="product.size">
+              <option *ngFor="let pr of products" [value]="pr.size">{{pr.size}}</option>
+              <!--option selected>Select size</option>
               <option value="S">S</option>
               <option value="M">M</option>
               <option value="L">L</option>
-              <option value="XL">XL</option>
+              <option value="XL">XL</option-->
             </select>
           </form>
         </div>
-        <button (click)="addToCart(product)">Add to cart</button>
-      </div>
-      <div class="col">
-        <form class="form-inline">
-          <label class="my-1 mr-2" for="inlineFormCustomSelectPref2">Quantity</label>
-          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref2" name="quantity"
-                  [(ngModel)]="orderedItem.quantity">
-            <option selected>Select quantity</option>
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-          </select>
-        </form>
+        <div class="col">
+          <form class="form-inline">
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref2">Quantity</label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref2" name="quantity"
+                    [(ngModel)]="sizes.sizeS">
+              <option *ngFor="let s of sizeArray" [value]="s.sizeS">{{s.sizeS}}</option>
+              <!--option selected>Select quantity</option>
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option-->
+            </select>
+          </form>
+        </div>
       </div>
     </div>
+    <button (click)="addToCart(product)">Add to cart</button>
   </div>
 </main>
 <app-footer></app-footer>

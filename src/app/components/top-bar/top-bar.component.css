@@ -22,6 +22,7 @@ i.material-icons {
 /* Top Bar */
 
  .navbar{
+   margin: 20px;
    background-color: rgba(229, 228, 255, 0.0);
   display: flex;
   flex-direction: row;
