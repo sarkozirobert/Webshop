@@ -11,6 +11,10 @@ import {SizesResponse} from '../interfaces/sizes-response';
 import {Category} from '../interfaces/category';
 import {CategoryResponse} from '../interfaces/category-response';
 import {ProductFilter} from '../interfaces/product-filter';
+import {ClothesType} from '../interfaces/clothes-type';
+import {ClothesTypeResponse} from '../interfaces/clothes-type-response';
+import {Color} from '../interfaces/color';
+import {ColorResponse} from '../interfaces/color-response';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +50,16 @@ export class ProductsService {
 
   getGenderType(): Observable<Category[]> {
     return this.http.get<CategoryResponse>(this.SERVER_URL + '/genders', {withCredentials: true})
+      .pipe(map(response => response.list));
+  }
+
+  getColorType(): Observable<Color[]> {
+    return this.http.get<ColorResponse>(this.SERVER_URL + '/colors', {withCredentials: true})
+      .pipe(map(response => response.list));
+  }
+
+  getClothesType(): Observable<ClothesType[]> {
+    return this.http.get<ClothesTypeResponse>(this.SERVER_URL + '/types', {withCredentials: true})
       .pipe(map(response => response.list));
   }
 

@@ -2,21 +2,19 @@
 <main>
   <div class="container">
     <ngb-carousel [animation]="true" [interval]="3000">
-      <ng-template ngbSlide *ngFor="let pr of products">
+      <ng-template  class="carousel-control-next-icon carousel-control-prev-icon"
+                    ngbSlide *ngFor="let pr of products | slice: 0 : 3">
         <div class="picsum-img-wrapper">
           <a routerLink="/product-details/{{pr.id}}">
           <img src="https://webshopbackend.herokuapp.com/images/{{pr.imageId}}">
           </a>
         </div>
-        <div class="carousel-caption">
-          <h3>{{pr.details}}</h3>
-        </div>
       </ng-template>
     </ngb-carousel>
     <h2 class=mt-5>Costumer's favorites</h2>
     <div class="row">
-      <div class="col-md-6 col-lg-3 gender-card" *ngFor="let cat of categories">
-        <app-gender-card [cat]="cat"></app-gender-card>
+      <div class="col-md-6 col-lg-4 gender-card" *ngFor="let cat of categories | slice: 0 : 3">
+        <app-gender-card class="image-fluid" [cat]="cat"></app-gender-card>
       </div>
     </div>
   </div>
