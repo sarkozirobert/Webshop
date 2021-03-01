@@ -6,6 +6,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Token} from '../../interfaces/token';
 import {TokenService} from '../../services/token.service';
 import {Product} from '../../interfaces/product';
+import {ClothesType} from '../../interfaces/clothes-type';
+import {Color} from '../../interfaces/color';
 
 @Component({
   selector: 'app-filter',
@@ -14,10 +16,12 @@ import {Product} from '../../interfaces/product';
 })
 export class FilterComponent implements OnInit {
 
-  filter: ProductFilter;
+    filter: ProductFilter;
   @Output()
   search: EventEmitter<ProductFilter>;
   categories: Category[];
+  colors: Color[];
+  types: ClothesType[];
   @Input()
   token: Token;
   @Input()
@@ -30,9 +34,11 @@ export class FilterComponent implements OnInit {
     private productService: ProductsService,
     private tokenService: TokenService
   ) {
-    this.filter = {name: '', gender: '', type: '', color: '', priceMin: 0, priceMax: 0};
+    this.filter = {name: '', gender: '', color: '', type: '', priceMin: 0, priceMax: 0};
     this.search = new EventEmitter();
     this.categories = [];
+    this.colors = [];
+    this.types = [];
     this.token = {
       headerName: '',
       parameterName: '',
@@ -55,6 +61,14 @@ export class FilterComponent implements OnInit {
           this.filter.gender = loadCategory;
           this.onSearch();
         }
+      });
+    this.productService.getClothesType().subscribe(
+      type => {
+        this.types = type;
+      });
+    this.productService.getColorType().subscribe(
+      clr => {
+        this.colors = clr;
       });
     this.productService.getProducts().subscribe(
       pr => {
