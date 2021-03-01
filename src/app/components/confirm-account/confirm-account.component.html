@@ -1,6 +1,8 @@
 <app-top-bar></app-top-bar>
 <main>
-  <p *ngIf="messageConfirm.success">confirm-account works!{{this.messageConfirm.message}}Sign in, please!</p>
-  <p *ngIf="showRegError">confirm-account works!{{this.messageConfirm.message}} Register again,please!</p>
+  <div class="confirm">
+  <h2 *ngIf="messageConfirm.success">{{this.messageConfirm.message}}  Sign in, please!</h2>
+  <h2 *ngIf="showRegError">{{this.messageConfirm.message}} Register again,please!</h2>
+  </div>
 </main>
 <app-footer></app-footer>

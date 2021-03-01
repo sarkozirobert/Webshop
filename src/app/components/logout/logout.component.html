@@ -2,10 +2,12 @@
 <app-top-bar></app-top-bar>
 <main>
   <div class="logout">
-  <p>Are you sure?</p>
-  <button type="button"  class=" btn btn-outline-primary"(click)="logOutMethod()">YES</button>
-  <button type="button" class=" btn btn-info" (click)="back()">NO</button>
+  <div class="container">
+  <h2> Are you sure? ( Your shopping cart will be deleted! )</h2>
+  <button type="button"  class=" btn-lg btn-outline-primary"(click)="logOutMethod()">YES</button>
+  <button type="button" class=" btn-lg btn-outline-success" (click)="back()">NO</button>
   <p *ngIf="showLogoutError">You are logged out!</p>
+  </div>
   </div>
 </main>
 <app-footer></app-footer>

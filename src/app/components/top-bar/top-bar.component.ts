@@ -15,7 +15,7 @@ export class TopBarComponent implements OnInit {
 
   @Input()
   user: UserProfile;
-
+// comment
   firstName: string | null;
   constructor(private modalService: NgbModal) {
     this.user = {
