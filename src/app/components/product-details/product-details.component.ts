@@ -19,7 +19,6 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
   @Input()
   sizes: Sizes;
- 
   allItem: PurchasedClothesList[];
   products: Product[];
   sizeArray: Sizes[];
