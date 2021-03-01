@@ -7,7 +7,9 @@ import {PurchasedClothesList} from '../../interfaces/purchasedClothesList';
 import {CartService} from '../../services/cart.service';
 import {TokenService} from '../../services/token.service';
 import {Token} from '../../interfaces/token';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
+import {UserProfile} from '../../interfaces/userProfile';
 
 @Component({
   selector: 'app-purchase-form',
@@ -17,21 +19,24 @@ import {Router} from "@angular/router";
 export class PurchaseFormComponent implements OnInit {
 
   @Input()
-  user: User;
+  userProfile: UserProfile;
   purchaseForm: FormGroup;
+  @Input()
   p: PurchasePackToSend;
+  @Input()
   productsInCart: PurchasedClothesList[];
+  @Input()
   totalPrice: number;
   @Input()
   token: Token;
 
-  constructor(private purchaseService: PurchaseService, private cartService: CartService, private tokenService: TokenService, private router: Router) {
+  constructor(private purchaseService: PurchaseService, private cartService: CartService,
+              private tokenService: TokenService, private router: Router,
+              private userService: UserService) {
     // @ts-ignore
-    this.user = {
+    this.userProfile = {
       firstName: '',
       lastName: '',
-      email: '',
-      password: '',
       address: '',
       city: '',
       country: '',
@@ -52,7 +57,6 @@ export class PurchaseFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createPurchaseForm();
     this.productsInCart = this.cartService.items;
     this.p.purchasedClothesList = this.productsInCart;
     this.p.totalPrice = this.sumPrice(this.p.purchasedClothesList);
@@ -64,23 +68,14 @@ export class PurchaseFormComponent implements OnInit {
         // @ts-ignore
         this.token = s;
       });
-  }
-
-  createPurchaseForm(): void {
-    this.purchaseForm = new FormGroup({
-      firstName: new FormControl(this.user.firstName, Validators.required),
-      lastName: new FormControl(this.user.lastName, Validators.required),
-      address: new FormControl(this.user.address, Validators.required),
-      city: new FormControl(this.user.city, Validators.required),
-      country: new FormControl(this.user.country, Validators.required),
-      zipcode: new FormControl(this.user.zipcode, Validators.required),
-      phoneNumber: new FormControl(this.user.phoneNumber, Validators.required)
-    });
+    this.userService.getUserData().subscribe(r => this.userProfile = r);
+    // this.loadPurchaseFormDetails();
   }
 
   sendPurchase(): void {
     this.purchaseService.sendPurchase(this.token.token, this.p).subscribe(response => console.log(response));
     this.router.navigateByUrl('/main');
+    this.cartService.clearCart();
     // console.log(typeof this.p.comment);
     // console.log(this.p.comment);
   }
@@ -100,4 +95,12 @@ export class PurchaseFormComponent implements OnInit {
       this.p.purchasedClothesList[i].quantity = +this.p.purchasedClothesList[i].quantity;
     }
   }
+
+  // loadPurchaseFormDetails(): void {
+  //   this.userService.getUserData().subscribe(response => this.userProfile = {
+  //     address: response.address, city: response.city, country: response.country, phoneNumber: response.phoneNumber,
+  //     zipcode: response.zipcode, firstName: response.firstName, lastName: response.lastName
+  //   });
+  //   console.log(this.userProfile.firstName);
+  // }
 }

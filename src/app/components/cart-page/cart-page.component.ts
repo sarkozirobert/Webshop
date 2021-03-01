@@ -21,6 +21,7 @@ export class CartPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsInCart = this.cartService.items;
+    this.sumPrice(this.productsInCart);
     // console.log(this.productsInCart);
   }
 
@@ -28,8 +29,8 @@ export class CartPageComponent implements OnInit {
   sumPrice(productsInCart: PurchasedClothesList[]): number {
     this.totalPrice = 0;
     // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.productsInCart.length; i++) {
-      this.totalPrice = this.productsInCart[i].subTotal + this.totalPrice;
+    for (let i = 0; i < productsInCart.length; i++) {
+      this.totalPrice = productsInCart[i].subTotal + this.totalPrice;
       /*console.log(this.productsInCart[i].subTotal);
       console.log(this.totalPrice);
       console.log(i);*/
