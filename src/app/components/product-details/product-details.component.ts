@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CartService} from '../../services/cart.service';
 import {ProductsService} from '../../services/products.service';
@@ -6,17 +6,23 @@ import {Product} from '../../interfaces/product';
 import { OrderedItem } from 'src/app/interfaces/ordered-item';
 import {Sizes} from '../../interfaces/sizes';
 
-
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+  @Output()
+  search: EventEmitter<Sizes>;
+  @Input()
   orderedItem: OrderedItem;
+  @Input()
   product: Product;
+  @Input()
   sizes: Sizes;
   allItem: OrderedItem[];
+  products: Product[];
+  sizeArray: Sizes[];
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +30,7 @@ export class ProductDetailsComponent implements OnInit {
     private cartService: CartService,
     private productService: ProductsService
   ) {
+    this.search = new EventEmitter();
     this.product = {
       id: 0,
       name: '',
@@ -44,6 +51,8 @@ export class ProductDetailsComponent implements OnInit {
     // @ts-ignore
     this.orderedItem = {id: 0, name: '', imageId: 0, price: 0, size: '', quantity: 0, subTotal: 0};
     this.allItem = [];
+    this.products = [];
+    this.sizeArray = [];
   }
 
   // tslint:disable-next-line:typedef
@@ -66,5 +75,7 @@ export class ProductDetailsComponent implements OnInit {
     const productIdFromRoute = Number(routeParams.get('productId'));
     this.productService.getProductByID(productIdFromRoute).subscribe(p => this.product = p);
     this.productService.getProductSizeAndQuantity(productIdFromRoute).subscribe(p => this.sizes = p);
+    this.productService.getProductSizeAndQuantity(productIdFromRoute).subscribe(p => this.sizes = p);
+    this.productService.getProducts().subscribe(pr => {this.products = pr; });
   }
 }

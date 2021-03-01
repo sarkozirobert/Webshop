@@ -2,3 +2,8 @@ a {
   text-decoration: none;
   color: black;
 }
+
+button {
+  display: flex;
+  justify-content: center;
+}
