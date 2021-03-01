@@ -21,7 +21,8 @@ export class CartComponent implements OnInit {
     // @ts-ignore
     this.productsInCart = this.cartService.items;
     console.log(this.productsInCart);
-    console.log(this.productsInCart.length);
+    console.log(this.productsInCart[0].size);
+    console.log(this.productsInCart[0].quantity);
   }
   submit(): void {
     // this.cartService.addToCart(this.productsInCart);
