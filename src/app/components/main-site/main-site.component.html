@@ -2,35 +2,21 @@
 <main>
   <div class="container">
     <ngb-carousel [animation]="true" [interval]="3000">
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper" style="text-align: center">
-          <img src="../../../assets/red-shirt.png" alt="Random first slide">
+      <ng-template ngbSlide *ngFor="let pr of products">
+        <div class="picsum-img-wrapper">
+          <a routerLink="/product-details/{{pr.id}}">
+          <img src="https://webshopbackend.herokuapp.com/images/{{pr.imageId}}">
+          </a>
         </div>
         <div class="carousel-caption">
-          <h3>ON SALE!</h3>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper" style="text-align: center">
-          <img src="../../../assets/blue-shirt.png" alt="Random second slide">
-        </div>
-        <div class="carousel-caption">
-          <h3>INCREDIBLE PRICES!</h3>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper" style="text-align: center">
-          <img src="../../../assets/yellow-shirt.png" alt="Random third slide">
-        </div>
-        <div class="carousel-caption">
-          <h3>END OF SEASON SALE!</h3>
+          <h3>{{pr.details}}</h3>
         </div>
       </ng-template>
     </ngb-carousel>
     <h2 class=mt-5>Costumer's favorites</h2>
     <div class="row">
-      <div class="col-md-6 col-lg-3 gender-card" *ngFor="let pr of products">
-        <app-gender-card [pr]="pr"></app-gender-card>
+      <div class="col-md-6 col-lg-3 gender-card" *ngFor="let cat of categories">
+        <app-gender-card [cat]="cat"></app-gender-card>
       </div>
     </div>
   </div>

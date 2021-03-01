@@ -1,0 +1,25 @@
+.form-row {
+  margin-top: 180px;
+  margin-bottom: 180px;
+}
+
+.form-button {
+   margin-top: 15px;
+ }
+ .form-group {
+   margin-top: 15px;
+ }
+
+ input {
+   margin-top: 15px;
+ }
+
+ select {
+    margin-top: 7px;
+ }
+
+ label {
+   display: flex;
+   justify-content: center;
+ }
+

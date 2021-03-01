@@ -1,10 +1,11 @@
-import {OrderedItem} from './ordered-item';
+import {PurchasedClothesList} from './purchasedClothesList';
 
 export interface Order{
 
   id: number;
   totalPrice: number;
-  status: boolean;
   userID: number;
-  order: OrderedItem[];
+  purchasedClothesList: PurchasedClothesList[];
+  comment: '';
+  finish: boolean;
 }

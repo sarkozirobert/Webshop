@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainSiteComponent } from './components/main-site/main-site.component';
@@ -8,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardComponent } from './components/card/card.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import {RouterModule} from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { RegistrationModalComponent } from './components/registration-modal/registration-modal.component';
@@ -24,9 +22,12 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ProductsFilterPipe } from './pipes/products-filter.pipe';
 import { GenderCardComponent } from './components/gender-card/gender-card.component';
 import { GenderFilterPipe } from './pipes/gender-filter.pipe';
+// @ts-ignore
+import { FilterComponent } from './components/filter/filter.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ConfirmAccountComponent } from './components/confirm-account/confirm-account.component';
-// import { ProductFilterPipe } from './pipes/product-filter.pipe';
+// @ts-ignore
+import { OrderRowComponent } from './components/order-row/order-row.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import { ConfirmAccountComponent } from './components/confirm-account/confirm-ac
     ProductsFilterPipe,
     GenderCardComponent,
     GenderFilterPipe,
+    FilterComponent,
+    OrderRowComponent,
     LogoutComponent,
     ConfirmAccountComponent
   ],

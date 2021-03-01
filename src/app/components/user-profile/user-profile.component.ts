@@ -3,8 +3,10 @@ import {User} from '../../interfaces/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserProfile} from '../../interfaces/userProfile';
 import {UserService} from '../../services/user.service';
-
-
+import {Order} from '../../interfaces/order';
+import {ActivatedRoute} from '@angular/router';
+import {TokenService} from '../../services/token.service';
+import {Token} from '../../interfaces/token';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,8 +17,15 @@ export class UserProfileComponent implements OnInit {
 
   userProfile: UserProfile;
   profileForm: FormGroup;
+  orders: Order[];
+  showSuccess: boolean;
 
-  constructor(private userService: UserService) {
+  @Input()
+  token: Token;
+
+
+  constructor(private userService: UserService, private route: ActivatedRoute, private tokenService: TokenService ) {
+    this.showSuccess = false;
     this.userProfile = {
       firstName: '',
       lastName: '',
@@ -35,15 +44,28 @@ export class UserProfileComponent implements OnInit {
       zipcode: new FormControl(this.userProfile.zipcode, Validators.required),
       phoneNumber: new FormControl(this.userProfile.phoneNumber, Validators.minLength(6))
     });
+    this.orders = [];
+
+    this.token =  {
+      headerName: '',
+      parameterName: '',
+      token: ''
+    };
   }
 
   ngOnInit(): void {
-    this.userService.getUserData().subscribe(response => this.userProfile = response.user);
+    this.userService.getUserData().subscribe(r => this.userProfile = r);
+    this.userService.getOrderData().subscribe(resp => this.orders = resp);
+    this.tokenService.getToken().subscribe(res => this.token = res);
+    console.log(this.token);
   }
 
   submit(): void {
-    this.userService.modifyUser(this.profileForm.value).subscribe(response => {
-      console.log(response);
+    this.userService.modifyUser(this.token.token, this.profileForm.value).subscribe(response => {
+      this.userService.refreshUser(response.t);
+      this.showSuccess = true;
     });
   }
+
+
 }

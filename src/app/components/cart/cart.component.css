@@ -1,14 +1,10 @@
 .modal-header{
   background-color: rgba(255,198,165,1.0);
 }
-.modal-title{
-  color: white;
-}
 .btn-hidden {
   color: white;
 }
 #cart-modal-body{
-  background-image: url("src/assets/pexels-photo-1631677.jpeg");
   background-size: cover;
 }
 #cart-modal-footer{

@@ -3,3 +3,36 @@ img {
   height: 50%;
 }
 
+h3 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.picsum-img-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.gender-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-caption {
+  color: black;  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-image: none;
+
+  content: '>';
+  font-size: 55px;
+  color: black;
+
+  content: '<';
+  font-size: 55px;
+  color: black;
+
+}

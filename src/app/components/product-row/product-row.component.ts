@@ -2,8 +2,10 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../interfaces/user';
 import {Product} from '../../interfaces/product';
 import {Sizes} from '../../interfaces/sizes';
-import {OrderedItem} from '../../interfaces/ordered-item';
+import {PurchasedClothesList} from '../../interfaces/purchasedClothesList';
 import {CartService} from '../../services/cart.service';
+// @ts-ignore
+import EventEmitter = require('events');
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,15 +16,14 @@ import {CartService} from '../../services/cart.service';
 export class ProductRowComponent implements OnInit {
 
   @Input()
-  orderedProduct: OrderedItem;
+  orderedProduct: PurchasedClothesList;
 
 
-  constructor( private cartService: CartService) {
+  constructor( public cartService: CartService) {
     this.orderedProduct = {id: 0, name: '', imageId: 0, price: 0, size: '', quantity: 0, subTotal: 0 };
   }
 
   ngOnInit(): void {
-    console.log(this.orderedProduct.subTotal);
   }
 
 }

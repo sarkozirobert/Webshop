@@ -1,4 +1,4 @@
-export interface OrderedItem {
+export interface PurchasedClothesList {
   id: number;
   name: string;
   imageId?: number;

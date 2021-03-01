@@ -1,8 +1,11 @@
-import {OrderedItem} from './ordered-item';
+import {PurchasedClothesList} from './purchasedClothesList';
 import {User} from './user';
 
 export interface PurchasePackToSend {
-  orderedItems: OrderedItem[];
+  purchasedClothesList: PurchasedClothesList[];
   id: number;
+  userId: number;
+  finish: boolean;
   totalPrice: number;
+  comment: string;
 }

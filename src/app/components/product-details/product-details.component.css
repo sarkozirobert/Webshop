@@ -4,16 +4,35 @@ main {
   justify-content: center;
 }
 
+.row {
+  display: flex;
+  justify-content: center;
+}
+
 img {
-  margin-right: 60px;
   background-size: cover;
   background-attachment: fixed;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  margin-left: 140px;
+}
+
+.form-row {
+  margin-top: 20px;
+}.form-button {
+   margin-top: 32px;
+ }
+label {
+  display: flex;
+  justify-content: center;
 }
 
 .details {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-bottom: 100px;
 }
 
 * {
@@ -59,6 +78,7 @@ button {
   background-size: 100% 100%;
   box-shadow: 0 0 0 7px goldenrod inset;
   margin-bottom: 15px;
+  align-self: flex-end;
 }
 
 button:hover {
@@ -85,8 +105,4 @@ button:hover {
   100% {
     background-position: 400px 0;
   }
-}
-
-#uni {
- transform: rotate(90deg);
 }

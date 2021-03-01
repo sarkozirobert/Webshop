@@ -4,14 +4,20 @@
 @font-face {
   font-family: "Special Elite";
   src: url("assets/SpecialElite-Regular.ttf") format("opentype");
-  font-color: white;
+
 }
 
 body{
-  background-image: url("src/assets/pexels-photo-1631677.jpeg");
+  /*background-image: url("src/assets/pexels-photo-1631677.jpeg");*/
+  /*background-image: url("src/assets/background.jpg");*/
+  background-color: antiquewhite;
+
+
+
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Special Elite', cursive;
+
 }
 
 router-outlet + * {
