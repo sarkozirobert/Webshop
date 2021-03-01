@@ -1,10 +1,11 @@
 
 <app-top-bar></app-top-bar>
 <main>
-  <p> Are you sure?</p>
+  <div class="logout">
+  <p>Are you sure?</p>
   <button type="button"  class=" btn btn-outline-primary"(click)="logOutMethod()">YES</button>
   <button type="button" class=" btn btn-info" (click)="back()">NO</button>
   <p *ngIf="showLogoutError">You are logged out!</p>
-
+  </div>
 </main>
 <app-footer></app-footer>

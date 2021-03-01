@@ -1,7 +1,7 @@
 <app-top-bar></app-top-bar>
 <main>
   <div class="container" id="product-cont">
-          <app-filter (search)="doSearch($event)">Keresés</app-filter>
+    <app-filter (search)="doSearch($event)"></app-filter>
     <div class="row">
       <div class="col-md-6 col-lg-3" *ngFor="let pr of products" >
         <app-card [pr]='pr'></app-card>

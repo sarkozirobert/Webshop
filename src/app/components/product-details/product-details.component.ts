@@ -1,13 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-// @ts-ignore
 import {CartService} from '../../services/cart.service';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
-import {timeout} from 'rxjs/operators';
 import { PurchasedClothesList } from 'src/app/interfaces/purchasedClothesList';
 import {Sizes} from '../../interfaces/sizes';
-
 
 @Component({
   selector: 'app-product-details',
@@ -16,9 +13,16 @@ import {Sizes} from '../../interfaces/sizes';
 })
 export class ProductDetailsComponent implements OnInit {
   purchasedClothesList: PurchasedClothesList;
+  @Output()
+  search: EventEmitter<Sizes>;
+  @Input()
   product: Product;
+  @Input()
   sizes: Sizes;
+ 
   allItem: PurchasedClothesList[];
+  products: Product[];
+  sizeArray: Sizes[];
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +30,7 @@ export class ProductDetailsComponent implements OnInit {
     private cartService: CartService,
     private productService: ProductsService
   ) {
+    this.search = new EventEmitter();
     this.product = {
       id: 0,
       name: '',
@@ -46,6 +51,8 @@ export class ProductDetailsComponent implements OnInit {
     // @ts-ignore
     this.purchasedClothesList = {id: 0, name: '', imageId: 0, price: 0, size: '', quantity: 0, subTotal: 0};
     this.allItem = [];
+    this.products = [];
+    this.sizeArray = [];
   }
 
   // tslint:disable-next-line:typedef
@@ -68,5 +75,7 @@ export class ProductDetailsComponent implements OnInit {
     const productIdFromRoute = Number(routeParams.get('productId'));
     this.productService.getProductByID(productIdFromRoute).subscribe(p => this.product = p);
     this.productService.getProductSizeAndQuantity(productIdFromRoute).subscribe(p => this.sizes = p);
+    this.productService.getProductSizeAndQuantity(productIdFromRoute).subscribe(p => this.sizes = p);
+    this.productService.getProducts().subscribe(pr => {this.products = pr; });
   }
 }

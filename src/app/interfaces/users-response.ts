@@ -1,6 +1,6 @@
-import {User} from './user';
+import {UserProfile} from './userProfile';
 
 export interface UsersResponse {
   success: boolean;
-  user: User[];
+  user: UserProfile[];
 }

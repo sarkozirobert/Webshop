@@ -16,12 +16,13 @@ i.material-icons {
   font-size: 24px;
   cursor: pointer;
   background-color: rgba(229, 228, 255, 0.0);
-  color: white;
+  color: black;
   border: none;
 }
 /* Top Bar */
 
  .navbar{
+   margin: 20px;
    background-color: rgba(229, 228, 255, 0.0);
   display: flex;
   flex-direction: row;
@@ -30,7 +31,6 @@ i.material-icons {
 }
 
  h1,label {
-   color: white;
   margin: 0;
 }
 
