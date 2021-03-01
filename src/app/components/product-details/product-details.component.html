@@ -14,7 +14,7 @@
           <form class="form-inline">
             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Size</label>
             <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="size"
-                    [(ngModel)]="orderedItem.size">
+                    [(ngModel)]="purchasedClothesList.size">
               <option selected>Select size</option>
               <option value="S">S</option>
               <option value="M">M</option>
@@ -29,7 +29,7 @@
         <form class="form-inline">
           <label class="my-1 mr-2" for="inlineFormCustomSelectPref2">Quantity</label>
           <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref2" name="quantity"
-                  [(ngModel)]="orderedItem.quantity">
+                  [(ngModel)]="purchasedClothesList.quantity">
             <option selected>Select quantity</option>
             <option value=1>1</option>
             <option value=2>2</option>

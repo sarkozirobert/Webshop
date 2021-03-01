@@ -5,7 +5,7 @@ import {CartService} from '../../services/cart.service';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
 import {timeout} from 'rxjs/operators';
-import { OrderedItem } from 'src/app/interfaces/ordered-item';
+import { PurchasedClothesList } from 'src/app/interfaces/purchasedClothesList';
 import {Sizes} from '../../interfaces/sizes';
 
 
@@ -15,10 +15,10 @@ import {Sizes} from '../../interfaces/sizes';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  orderedItem: OrderedItem;
+  purchasedClothesList: PurchasedClothesList;
   product: Product;
   sizes: Sizes;
-  allItem: OrderedItem[];
+  allItem: PurchasedClothesList[];
 
   constructor(
     private route: ActivatedRoute,
@@ -44,7 +44,7 @@ export class ProductDetailsComponent implements OnInit {
     };
     this.sizes = {sizeS: 0, sizeM: 0, sizeL: 0, sizeXl: 0};
     // @ts-ignore
-    this.orderedItem = {id: 0, name: '', imageId: 0, price: 0, size: '', quantity: 0, subTotal: 0};
+    this.purchasedClothesList = {id: 0, name: '', imageId: 0, price: 0, size: '', quantity: 0, subTotal: 0};
     this.allItem = [];
   }
 
@@ -56,9 +56,9 @@ export class ProductDetailsComponent implements OnInit {
       name: this.product.name,
       imageId: this.product.imageId,
       price: this.product.price,
-      size: this.orderedItem.size,
-      quantity: this.orderedItem.quantity,
-      subTotal: this.product.price * this.orderedItem.quantity
+      size: this.purchasedClothesList.size,
+      quantity: this.purchasedClothesList.quantity,
+      subTotal: this.product.price * this.purchasedClothesList.quantity
     });
     window.alert('Your product has been added to the cart!');
   }

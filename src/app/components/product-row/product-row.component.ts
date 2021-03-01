@@ -2,7 +2,7 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../interfaces/user';
 import {Product} from '../../interfaces/product';
 import {Sizes} from '../../interfaces/sizes';
-import {OrderedItem} from '../../interfaces/ordered-item';
+import {PurchasedClothesList} from '../../interfaces/purchasedClothesList';
 import {CartService} from '../../services/cart.service';
 // @ts-ignore
 import EventEmitter = require('events');
@@ -16,7 +16,7 @@ import EventEmitter = require('events');
 export class ProductRowComponent implements OnInit {
 
   @Input()
-  orderedProduct: OrderedItem;
+  orderedProduct: PurchasedClothesList;
 
 
   constructor( public cartService: CartService) {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {OrderedItem} from '../../interfaces/ordered-item';
+import {PurchasedClothesList} from '../../interfaces/purchasedClothesList';
 import {CartService} from '../../services/cart.service';
 
 
@@ -11,7 +11,7 @@ import {CartService} from '../../services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  productsInCart: OrderedItem[];
+  productsInCart: PurchasedClothesList[];
 
   constructor(public activeModal: NgbActiveModal, public cartService: CartService) {
     this.productsInCart = [];

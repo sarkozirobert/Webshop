@@ -17,7 +17,7 @@ export class PurchaseService {
     const newHeaders = new HttpHeaders({'X-CSRF-TOKEN': t});
     return this.http.post<PurchasePackToSendResponse>(
       this.SERVER_URL + '/orders',
-      {order: purchasePack},
+      purchasePack,
       {headers: newHeaders, withCredentials: true}
     );
   }
