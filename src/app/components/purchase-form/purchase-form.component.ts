@@ -5,6 +5,8 @@ import {PurchasePackToSend} from '../../interfaces/purchase-pack-to-send';
 import {PurchaseService} from '../../services/purchase.service';
 import {OrderedItem} from '../../interfaces/ordered-item';
 import {CartService} from '../../services/cart.service';
+import {TokenService} from '../../services/token.service';
+import {Token} from '../../interfaces/token';
 
 @Component({
   selector: 'app-purchase-form',
@@ -19,8 +21,10 @@ export class PurchaseFormComponent implements OnInit {
   p: PurchasePackToSend;
   productsInCart: OrderedItem[];
   totalPrice: number;
+  @Input()
+  token: Token;
 
-  constructor(private purchaseService: PurchaseService, private cartService: CartService) {
+  constructor(private purchaseService: PurchaseService, private cartService: CartService, private tokenService: TokenService) {
     // @ts-ignore
     this.user = {
       firstName: '',
@@ -41,6 +45,9 @@ export class PurchaseFormComponent implements OnInit {
       totalPrice: 0, comment: ''};
     this.productsInCart = [];
     this.totalPrice = 0;
+    // @ts-ignore
+    this.token =  {headerName: '', parameterName: '', token: ''
+    };
   }
 
   ngOnInit(): void {
@@ -49,8 +56,13 @@ export class PurchaseFormComponent implements OnInit {
     this.p.orderedItems = this.productsInCart;
     this.p.totalPrice = this.sumPrice(this.p.orderedItems);
     this.parseQuantityToNumber(this.p.orderedItems);
-    console.log(this.p);
-    console.log(typeof this.p.orderedItems[0].quantity);
+    // console.log(this.p);
+    // console.log(typeof this.p.orderedItems[0].quantity);
+    this.tokenService.getToken().subscribe(
+      s => {
+        // @ts-ignore
+        this.token = s;
+      });
   }
 
   createPurchaseForm(): void {
@@ -66,7 +78,7 @@ export class PurchaseFormComponent implements OnInit {
   }
 
   sendPurchase(): void {
-    this.purchaseService.sendPurchase(this.p).subscribe(response => console.log(response));
+    this.purchaseService.sendPurchase(this.token.token, this.p).subscribe(response => console.log(response));
     console.log(typeof this.p.comment);
     console.log(this.p.comment);
   }

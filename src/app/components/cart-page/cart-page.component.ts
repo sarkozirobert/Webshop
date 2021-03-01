@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PurchasePackToSend} from '../../interfaces/purchase-pack-to-send';
 import {OrderedItem} from '../../interfaces/ordered-item';
 import {CartService} from '../../services/cart.service';
 
@@ -22,7 +21,7 @@ export class CartPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsInCart = this.cartService.items;
-    console.log(this.productsInCart);
+    // console.log(this.productsInCart);
   }
 
   // @ts-ignore

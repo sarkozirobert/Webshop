@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Product} from '../../interfaces/product';
 import {ProductsService} from '../../services/products.service';
+import {Category} from '../../interfaces/category';
 
 @Component({
   selector: 'app-main-site',
@@ -9,18 +9,19 @@ import {ProductsService} from '../../services/products.service';
 })
 export class MainSiteComponent implements OnInit {
 
-  products: Product[];
+  categories: Category[];
   @Input()
-  pr: Product;
+  cat: Category;
+
 
   constructor(private productService: ProductsService) {
-    this.products = [];
-    this.pr = {id: 0, name: '', details: '', price: 0, color: '', gender: '', type: '', imageId:  0};
+    this.categories = [];
+    this.cat = {gender: '', imageId: 0};
   }
   ngOnInit(): void {
     this.productService.getGenderType().subscribe(
-      pr => {
-        this.products = pr;
+      cat => {
+        this.categories = cat;
       });
   }
 }

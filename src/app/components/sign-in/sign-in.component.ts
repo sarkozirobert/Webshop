@@ -7,7 +7,6 @@ import {SigninService} from '../../services/signin.service';
 import {Token} from '../../interfaces/token';
 import {TokenService} from '../../services/token.service';
 import {SigninResponse} from '../../interfaces/signin-response';
-import {any} from 'codelyzer/util/function';
 
 @Component({
   selector: 'app-sign-in',
