@@ -1,6 +1,8 @@
 
 footer {
   background-color: rgba(229, 228, 255, 0.0);
+  /*background-image: url("src/assets/nature.jpg");
+   */
   display: flex;
   position: relative;
   left: 0px;
@@ -22,13 +24,6 @@ footer {
 
 a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
-p {
-  color: white;
-}
-
-h2 {
-  color: white
-}
