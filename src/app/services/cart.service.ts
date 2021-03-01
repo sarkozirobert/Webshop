@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {OrderedItem} from '../interfaces/ordered-item';
+import {PurchasedClothesList} from '../interfaces/purchasedClothesList';
 import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  items: OrderedItem[];
+  items: PurchasedClothesList[];
 
   constructor(private http: HttpClient) {
     this.items = [];
