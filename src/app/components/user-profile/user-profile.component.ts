@@ -82,6 +82,4 @@ export class UserProfileComponent implements OnInit {
       this.showSuccess = true;
     });
   }
-
-
 }
