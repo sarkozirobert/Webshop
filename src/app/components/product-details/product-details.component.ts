@@ -5,7 +5,6 @@ import {ProductsService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
 import { PurchasedClothesList } from 'src/app/interfaces/purchasedClothesList';
 import {Sizes} from '../../interfaces/sizes';
-
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -19,11 +18,9 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
   @Input()
   sizes: Sizes;
- 
   allItem: PurchasedClothesList[];
   products: Product[];
   sizeArray: Sizes[];
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -54,7 +51,6 @@ export class ProductDetailsComponent implements OnInit {
     this.products = [];
     this.sizeArray = [];
   }
-
   // tslint:disable-next-line:typedef
   addToCart(orderedItem: Product) {
     this.cartService.addToCart({
@@ -69,7 +65,6 @@ export class ProductDetailsComponent implements OnInit {
     });
     window.alert('Your product has been added to the cart!');
   }
-
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));

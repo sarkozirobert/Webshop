@@ -1,10 +1,9 @@
-<td scope="row">{{order.id}}</td>
-<tr *ngFor="let pc of order.purchasedClothesList">
-  <td>{{pc.id}}</td>
-  <td>{{pc.quantity}}</td>
+<td scope="row" [attr.rowspan]="order.purchasedClothesList.length">{{order.id}}</td>
+<ng-container *ngFor="let pc of order.purchasedClothesList">
   <td>{{pc.name}}</td>
+  <td>{{pc.quantity}}</td>
   <td>{{pc.size}}</td>
-</tr>
-<td>{{order.totalPrice}}</td>
+</ng-container>
+<td [attr.rowspan]="order.purchasedClothesList.length">{{order.totalPrice}}</td>
 
 
