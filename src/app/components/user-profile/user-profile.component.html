@@ -3,24 +3,7 @@
   <div class="container">
     <h2 class="mt-4">User Profile</h2>
     <ul class="list">
-      <li class="order-history-tab mt-4" id="tab-title-order-history" role="tab" aria-controls="tab-order-history">
-        <a href="#tab-order-history">Order History</a>
-        <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">Order ID</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Size</th>
-            <th scope="col">Price</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr app-order-row *ngFor="let o of orders" [order]="o">
-          </tr>
-          </tbody>
-        </table>
-      </li>
+
       <li class="personal-information-tab" id="tab-title-personal-information" role="tab"
           aria-controls="tab-personal-information">
         <a href="#tab-personal-information">Personal Information</a>
@@ -31,7 +14,7 @@
           <div class="mb-6 row">
             <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
             <div class="col-sm-6">
-            <input type="text" id="inputFirstName" formControlName="firstName" name="firstName" value="{{userProfile.firstName}}">
+            <input type="text" id="inputFirstName" formControlName="firstName" name="firstName" [value]="userProfile.firstName">
             </div>
           </div>
         </div>
@@ -39,7 +22,7 @@
           <div class="mb-6 row">
             <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
             <div class="col-sm-6">
-              <input type="text" id="inputLastName" formControlName="lastName" name="lastName" value="{{userProfile.lastName}}">
+              <input type="text" id="inputLastName" formControlName="lastName" name="lastName" [value]="userProfile.lastName">
             </div>
           </div>
         </div>
@@ -47,7 +30,7 @@
           <div class="mb-6 row">
             <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
             <div class="col-sm-6">
-              <input type="text" id="inputAddress" formControlName="address" name="address" value="{{userProfile.address}}">
+              <input type="text" id="inputAddress" formControlName="address" name="address" [value]="userProfile.address">
             </div>
           </div>
         </div>
@@ -55,7 +38,7 @@
           <div class="mb-6 row">
             <label for="inputCity" class="col-sm-2 col-form-label">City</label>
             <div class="col-sm-6">
-              <input type="text" id="inputCity" formControlName="city" name="city" value="{{userProfile.city}}">
+              <input type="text" id="inputCity" formControlName="city" name="city" [value]="userProfile.city">
             </div>
           </div>
         </div>
@@ -63,7 +46,7 @@
           <div class="mb-6 row">
             <label for="inputCountry" class="col-sm-2 col-form-label">Country</label>
             <div class="col-sm-6">
-              <input type="text" id="inputCountry" formControlName="country" name="country" value="{{userProfile.country}}">
+              <input type="text" id="inputCountry" formControlName="country" name="country" [value]="userProfile.country">
             </div>
           </div>
         </div>
@@ -71,7 +54,7 @@
           <div class="mb-6 row">
             <label for="inputZipCode" class="col-sm-2 col-form-label">ZipCode</label>
             <div class="col-sm-6">
-              <input type="text" id="inputZipCode" formControlName="zipcode" name="zipcode" value="{{userProfile.zipcode}}">
+              <input type="text" id="inputZipCode" formControlName="zipcode" name="zipcode" [value]="userProfile.zipcode">
             </div>
           </div>
         </div>
@@ -79,11 +62,30 @@
           <div class="mb-6 row">
             <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
             <div class="col-sm-6">
-              <input type="text" id="inputPhone" formControlName="phoneNumber" name="phoneNumber" value="{{userProfile.phoneNumber}}">
+              <input type="text" id="inputPhone" formControlName="phoneNumber" name="phoneNumber" [value]="userProfile.phoneNumber">
             </div>
           </div>
         </div>
       </li>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <li class="order-history-tab mt-4" id="tab-title-order-history" role="tab" aria-controls="tab-order-history">
+      <a href="#tab-order-history">Order History</a>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Order ID</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Size</th>
+          <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr app-order-row *ngFor="let o of orders" [order]="o">
+        </tr>
+        </tbody>
+      </table>
+    </li>
     </ul>
     <div class="container-personal" id="tab-personal-information">
     </div>
