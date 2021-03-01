@@ -7,7 +7,7 @@ import {PurchasedClothesList} from '../../interfaces/purchasedClothesList';
 import {CartService} from '../../services/cart.service';
 import {TokenService} from '../../services/token.service';
 import {Token} from '../../interfaces/token';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-purchase-form',
@@ -19,13 +19,17 @@ export class PurchaseFormComponent implements OnInit {
   @Input()
   user: User;
   purchaseForm: FormGroup;
+  @Input()
   p: PurchasePackToSend;
+  @Input()
   productsInCart: PurchasedClothesList[];
+  @Input()
   totalPrice: number;
   @Input()
   token: Token;
 
-  constructor(private purchaseService: PurchaseService, private cartService: CartService, private tokenService: TokenService, private router: Router) {
+  constructor(private purchaseService: PurchaseService, private cartService: CartService,
+              private tokenService: TokenService, private router: Router) {
     // @ts-ignore
     this.user = {
       firstName: '',
