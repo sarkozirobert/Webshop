@@ -35,6 +35,7 @@ export class CartPageComponent implements OnInit {
       console.log(this.totalPrice);
       console.log(i);*/
     }
+    this.totalPrice.toFixed(2);
     return this.totalPrice;
   }
 

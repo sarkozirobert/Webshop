@@ -36,9 +36,9 @@
     <a class="button fancy-button" (click)="openModifyModal()">
 
       <i class="material-icons">
-        <img src="../../../assets/shopping-cart-1985%20(3).png" alt="">
+        <img *ngIf=" firstName !== '' && firstName !== null" src="../../../assets/shopping-cart-1985%20(3).png" alt="">
       </i>
-    <div>in cart</div>
+    <div *ngIf=" firstName !== '' && firstName !== null">in cart</div>
     </a>
     </div>
   </nav>
