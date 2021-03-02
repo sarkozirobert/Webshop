@@ -39,7 +39,7 @@ export class UserService {
 
   addUser(t: string, s: User): Observable<ConfirmMessageResponse> {
     const newHeaders = new HttpHeaders({'X-CSRF-TOKEN': t});
-    return this.http.post<ConfirmMessageResponse>(this.SERVER_URL, s, {headers: newHeaders, withCredentials: true});
+    return this.http.post<ConfirmMessageResponse>(this.SERVER_URL + '/register', s, {headers: newHeaders, withCredentials: true});
   }
 
   getUserData(): Observable<UserProfile> {

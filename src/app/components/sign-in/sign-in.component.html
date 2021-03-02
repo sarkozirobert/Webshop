@@ -14,10 +14,10 @@
       <div class="mb-6 row">
         <label for="exampleInputEmail1" class="col-sm-4 col-form-label">Email address</label>
         <div class="col-sm-8">
-          <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp"
-                 formControlName="email"
-                 [ngClass]="{'is-invalid': registrationForm.controls.email.invalid && registrationForm.controls.email.touched}">
-          <div class="invalid-feedback" *ngIf="registrationForm.controls.email.errors?.required">
+          <input type="username" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp"
+                 formControlName="username"
+                 [ngClass]="{'is-invalid': registrationForm.controls.username.invalid && registrationForm.controls.username.touched}">
+          <div class="invalid-feedback" *ngIf="registrationForm.controls.username.errors?.required">
             You must give an e-mail address!>
           </div>
         </div>
@@ -36,7 +36,7 @@
       <div class="container-fluid">
       <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid" >Sign in</button>
       </div>
-    <a href="/#"> Forgotten password</a>
+    <a [routerLink]="['/forgot-password/0']"  aria-label="Close" (click)="activeModal.dismiss()" > Forgotten password</a>
   </form>
 
 </div>
