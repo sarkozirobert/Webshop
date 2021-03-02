@@ -18,7 +18,7 @@ import {UserProfile} from '../../interfaces/userProfile';
 })
 export class PurchaseFormComponent implements OnInit {
 
-  @Input()
+
   userProfile: UserProfile;
   purchaseForm: FormGroup;
   @Input()
