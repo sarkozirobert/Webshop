@@ -94,6 +94,7 @@ export class PurchaseFormComponent implements OnInit {
     for (let i = 0; i < this.p.purchasedClothesList.length; i++) {
       this.p.purchasedClothesList[i].quantity = +this.p.purchasedClothesList[i].quantity;
     }
+    // gfgdgf
   }
 
   // loadPurchaseFormDetails(): void {
