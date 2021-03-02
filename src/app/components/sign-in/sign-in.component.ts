@@ -22,13 +22,14 @@ export class SignInComponent implements OnInit {
   @Input()
   token: Token;
   showLoginError: boolean;
+
   constructor(public activeModal: NgbActiveModal, private signinService: SigninService,
               private router: Router, private tokenService: TokenService) {
     this.showLoginError = false;
-    this.signIn = {email: '', password: ''};
+    this.signIn = {username: '', password: ''};
     // @ts-ignore
-    this.registrationForm = {email: '', password: ''};
-    this.token =  {
+    this.registrationForm = {username: '', password: ''};
+    this.token = {
       headerName: '',
       parameterName: '',
       token: ''
@@ -45,6 +46,7 @@ export class SignInComponent implements OnInit {
       },
     };
   }
+
   ngOnInit(): void {
     this.createRegistrationForm();
     // @ts-ignore
@@ -55,30 +57,32 @@ export class SignInComponent implements OnInit {
         console.log(this.token);
       });
   }
+
   submit(): void {
     this.showLoginError = false;
-    this.signinService.logIn(this.token.token, this.registrationForm.value.email,
+    this.signinService.logIn(this.token.token, this.registrationForm.value.username,
       this.registrationForm.value.password).subscribe(response => {
-          this.login = response;
-          if (this.login.success) {
-            // TODO signinservice eltárolja, hogy beléptünk és ki lépett be
-            localStorage.setItem('firstName', this.login.list[0].firstName);
-            localStorage.setItem('id', String(this.login.list[0].id));
-            localStorage.setItem('token', this.token.token);
-            this.activeModal.close();
-            // tslint:disable-next-line:no-unused-expression
-            location.reload();
-          } else {
-            this.showLoginError = true;
-          }
-    },
+        this.login = response;
+        if (this.login.success) {
+          // TODO signinservice eltárolja, hogy beléptünk és ki lépett be
+          localStorage.setItem('firstName', this.login.list[0].firstName);
+          localStorage.setItem('id', String(this.login.list[0].id));
+          localStorage.setItem('token', this.token.token);
+          this.activeModal.close();
+          // tslint:disable-next-line:no-unused-expression
+          location.reload();
+        } else {
+          this.showLoginError = true;
+        }
+      },
       error => {
         this.showLoginError = true;
       });
   }
+
   createRegistrationForm(): void {
     this.registrationForm = new FormGroup({
-      email: new FormControl(this.signIn.email, [Validators.email, Validators.required]),
+      username: new FormControl(this.signIn.username, [Validators.email, Validators.required]),
       password: new FormControl(this.signIn.password, [Validators.minLength(6), Validators.required])
     });
   }

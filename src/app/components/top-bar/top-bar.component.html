@@ -3,7 +3,7 @@
   </a>
   <nav class="navbar navbar-expand-lg  navbar-dark " style="">
     <div class="container-fluid">
-      <h1 class="pulsar">My Store</h1>
+      <h1 class="pulsar">Lansketon</h1>
       <div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,17 +17,16 @@
           <li class="nav-item">
             <a class="button" [routerLink]="['/product-list']">Products</a>
           </li>
+          <li class="nav-item">
+            <a *ngIf=" firstName === '' || firstName === null" class="button" (click)="openRegistrationModal()">Registration</a>
+            <a *ngIf=" firstName !== '' && firstName !== null" class="button" [routerLink]="['/user-profile']">User Profile</a>
+            <!--a class="button" routerLink="/user-profile">User Profile</a-->
+          </li>
           <li class="nav-item" >
             <a *ngIf=" firstName === '' || firstName === null" class="button" (click)="openSignInModal()">Sign in</a>
             <a *ngIf=" firstName !== '' && firstName !== null"  class="button" [routerLink]="['/logout']">Sign out</a>
           </li>
-          <li class="nav-item">
-            <a *ngIf=" firstName === '' || firstName === null" class="button" (click)="openRegistrationModal()">Registration</a>
-          </li>
-          <li class="nav-item">
-            <a *ngIf=" firstName !== '' && firstName !== null" class="button" [routerLink]="['/user-profile']">User Profile</a>
-            <!--a class="button" routerLink="/user-profile">User Profile</a-->
-          </li>
+
         </ul>
       </div>
     </div>
@@ -37,9 +36,9 @@
     <a class="button fancy-button" (click)="openModifyModal()">
 
       <i class="material-icons">
-        <img src="../../../assets/shopping-cart-1985%20(3).png" alt="">
+        <img *ngIf=" firstName !== '' && firstName !== null" src="../../../assets/shopping-cart-1985%20(3).png" alt="">
       </i>
-    <div>in cart</div>
+    <div *ngIf=" firstName !== '' && firstName !== null">in cart</div>
     </a>
     </div>
   </nav>

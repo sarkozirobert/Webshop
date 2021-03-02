@@ -96,6 +96,10 @@ export class PurchaseFormComponent implements OnInit {
     }
   }
 
+  confirmMessage(): void{
+    window.alert('As soon, we send an text-message to confirm your buy intention');
+  }
+
   // loadPurchaseFormDetails(): void {
   //   this.userService.getUserData().subscribe(response => this.userProfile = {
   //     address: response.address, city: response.city, country: response.country, phoneNumber: response.phoneNumber,

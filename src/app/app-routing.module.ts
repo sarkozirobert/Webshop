@@ -8,6 +8,7 @@ import {PurchaseFormComponent} from './components/purchase-form/purchase-form.co
 import {UserProfileComponent} from './components/user-profile/user-profile.component';
 import {LogoutComponent} from './components/logout/logout.component';
 import {ConfirmAccountComponent} from './components/confirm-account/confirm-account.component';
+import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'main'},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'purchase-form', component: PurchaseFormComponent},
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'logout', component: LogoutComponent},
-  {path: 'confirm-account/:token', component: ConfirmAccountComponent}
+  {path: 'confirm-account/:token', component: ConfirmAccountComponent},
+  {path: 'forgot-password/:pswToken', component: ForgotPasswordComponent}
   ];
 
 @NgModule({
