@@ -2,8 +2,8 @@
 
 
 @font-face {
-  font-family: "Special Elite";
-  src: url("assets/SpecialElite-Regular.ttf") format("opentype");
+  font-family: "Oswald";
+  src: url("assets/Oswald-VariableFont_wght.ttf") format("opentype");
 
 }
 
@@ -16,7 +16,7 @@ body{
 
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Special Elite', cursive;
+  font-family: 'Oswald', cursive;
 
 }
 
