@@ -29,6 +29,7 @@ export class PurchaseFormComponent implements OnInit {
   totalPrice: number;
   @Input()
   token: Token;
+  isSuccess: boolean;
 
   constructor(private purchaseService: PurchaseService, private cartService: CartService,
               private tokenService: TokenService, private router: Router,
@@ -54,6 +55,7 @@ export class PurchaseFormComponent implements OnInit {
     // @ts-ignore
     this.token =  {headerName: '', parameterName: '', token: ''
     };
+    this.isSuccess = false;
   }
 
   ngOnInit(): void {
@@ -74,10 +76,8 @@ export class PurchaseFormComponent implements OnInit {
 
   sendPurchase(): void {
     this.purchaseService.sendPurchase(this.token.token, this.p).subscribe(response => console.log(response));
-    this.router.navigateByUrl('/main');
+    this.isSuccess = true;
     this.cartService.clearCart();
-    // console.log(typeof this.p.comment);
-    // console.log(this.p.comment);
   }
 
   sumPrice(productsInCart: PurchasedClothesList[]): number {
@@ -94,10 +94,6 @@ export class PurchaseFormComponent implements OnInit {
     for (let i = 0; i < this.p.purchasedClothesList.length; i++) {
       this.p.purchasedClothesList[i].quantity = +this.p.purchasedClothesList[i].quantity;
     }
-  }
-
-  confirmMessage(): void{
-    window.alert('As soon, we send an text-message to confirm your buy intention');
   }
 
   // loadPurchaseFormDetails(): void {

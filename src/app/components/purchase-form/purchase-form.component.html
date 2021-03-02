@@ -1,6 +1,9 @@
 <app-top-bar></app-top-bar>
 <div class="container">
   <h2 class="title-page" id="purchase-form-h2">Shipping details</h2>
+  <div class="alert alert-success" *ngIf="isSuccess">
+    Thank you for your purchase!
+  </div>
 </div>
 <div class="container pt-3" id="purchaseForm">
   <div class="mb-6 row">
@@ -38,17 +41,11 @@
     <div class="col-sm-8">
       <p>{{userProfile.zipcode}}</p>
     </div>
-
   </div>
   <div class="mb-6 row">
     <label class="col-sm-4">Phone number</label>
     <div class="col-sm-8">
       <p>{{userProfile.phoneNumber}}</p>
-
-    <div style="text-align: right">
-      <button type="button" class="btn btn-primary" routerLink="/cart-page">Back</button>
-      <button type="submit" class="btn btn-success ml-1" (click)="confirmMessage()">Purchase</button>
-
     </div>
   </div>
   <div class="form-group">
@@ -56,7 +53,10 @@
     <textarea class="form-control" [(ngModel)]="p.comment"
               formControlName="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
- 
+  <div style="text-align: right">
+    <button type="button" class="btn btn-primary" routerLink="/cart-page">Back</button>
+    <button type="submit" class="btn btn-success ml-1" (click)="sendPurchase()">Purchase</button>
+  </div>
 </div>
 
 <app-footer></app-footer>

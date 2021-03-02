@@ -10,3 +10,7 @@
 #cart-modal-footer{
   background-color: gainsboro;
 }
+
+.btn-primary{
+  justify-content: end;
+}
