@@ -5,6 +5,8 @@ import {ProductsService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
 import { PurchasedClothesList } from 'src/app/interfaces/purchasedClothesList';
 import {Sizes} from '../../interfaces/sizes';
+import {CartComponent} from '../cart/cart.component';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -25,7 +27,8 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private cartService: CartService,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private modalService: NgbModal
   ) {
     this.search = new EventEmitter();
     this.product = {
@@ -63,7 +66,7 @@ export class ProductDetailsComponent implements OnInit {
       quantity: this.purchasedClothesList.quantity,
       subTotal: this.product.price * this.purchasedClothesList.quantity
     });
-    window.alert('Your product has been added to the cart!');
+    this.modalService.open(CartComponent);
   }
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
