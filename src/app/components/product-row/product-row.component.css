@@ -1,6 +1,6 @@
 img {
-  width: 30px;
-  height: 30px;
+  width: 75px;
+  height: 75px;
 }
 
 #imgTd {
@@ -12,11 +12,11 @@ img {
 }
 
 #sizeTd {
-  width: 30px;
+  width: 60px;
 }
 
 #quantityTd {
-  width: 100px;
+  width: 75px;
 }
 
 #priceTd {
