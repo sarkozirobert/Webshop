@@ -28,6 +28,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { ConfirmAccountComponent } from './components/confirm-account/confirm-account.component';
 // @ts-ignore
 import { OrderRowComponent } from './components/order-row/order-row.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { OrderRowComponent } from './components/order-row/order-row.component';
     FilterComponent,
     OrderRowComponent,
     LogoutComponent,
-    ConfirmAccountComponent
+    ConfirmAccountComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
